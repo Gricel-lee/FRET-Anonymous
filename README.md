@@ -17,15 +17,6 @@ Installation
 
 See [installation guide](fret-electron/docs/_media/installingFRET/installationInstructions.md).
 
-Troubleshooting
-------------
-
-See [troubleshooting](Troubleshooting.md).
-
-Release notes
----------
-
-See [release notes](https://github.com/NASA-SW-VnV/fret/releases).
 
 Platforms
 ---------
