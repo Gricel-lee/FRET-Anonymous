@@ -9,22 +9,6 @@ FRET is a framework for the elicitation, specification, formalization, and analy
 We extended the structured natural language used by NASA's Formal Requirement Elicitation Tool (FRET) to support the specification of intuitive but unambiguous probabilistic requirements. Our tool present a formal, compositional, and automated approach for translating structured natural-language requirements into formulas in probabilistic temporal logic, and formally prove that the generated formulas are well-formed.
 
 
-### Video Guide
-
-
-
-<table>
-  <tr>
-    <td>
-      <a href="https://raw.githubusercontent.com/Gricel-lee/FRET-Anonymous/main/assets/demo.mov">
-        <img src="https://raw.githubusercontent.com/Gricel-lee/FRET-Anonymous/main/assets/preview.jpg" alt="Image 1" width="700">
-      </a>
-    </td>
-  </tr>
-  <tr>
-</table>
-
-
 
 Installation
 ------------
@@ -57,3 +41,18 @@ The FRET (Formal Requirements Elicitation) Tool is licensed under the Apache Lic
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
 Copyright © 2025 (Anonymized organisation to be desclosed after review process concludes). All rights reserved.
+
+
+Video Guide
+-------
+
+<table>
+  <tr>
+    <td>
+      <a href="https://raw.githubusercontent.com/Gricel-lee/FRET-Anonymous/main/assets/demo.mov">
+        <img src="https://raw.githubusercontent.com/Gricel-lee/FRET-Anonymous/main/assets/preview.jpg" alt="Image 1" width="700">
+      </a>
+    </td>
+  </tr>
+  <tr>
+</table>
