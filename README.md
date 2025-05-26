@@ -17,8 +17,9 @@ See [installation guide](fret-electron/docs/_media/installingFRET/installationIn
 
 
 The FRET 3.0.0 package is available for direct download in the following archive formats:
-- [.zip](/fret-3.0.0.zip) — suitable for Windows users
-- [.tar](./fret-3.0.0.tar) — suitable for Unix/Linux users
+- [.zip](https://github.com/Gricel-lee/FRET-Anonymous/blob/main/fret-3.0.0.zip) — suitable for Windows users
+- [.tar](https://raw.githubusercontent.com/Gricel-lee/FRET-Anonymous/main/fret-3.0.0.tar) — suitable for Unix/Linux users
+
 
 
 
