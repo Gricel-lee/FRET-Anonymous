@@ -13,7 +13,17 @@ We extended the structured natural language used by NASA's Formal Requirement El
 
 
 
-[![Watch the demo](https://raw.githubusercontent.com/Gricel-lee/FRET-Anonymous/main/assets/preview.jpg)](assets/demo.mov)
+<table>
+  <tr>
+    <td>
+      <a href="https://raw.githubusercontent.com/Gricel-lee/FRET-Anonymous/main/assets/demo.mov">
+        <img src="https://raw.githubusercontent.com/Gricel-lee/FRET-Anonymous/main/assets/preview.jpg" alt="Image 1" width="700">
+      </a>
+    </td>
+  </tr>
+  <tr>
+</table>
+
 
 
 Installation
