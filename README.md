@@ -57,3 +57,4 @@ Video Guide
   </tr>
   <tr>
 </table>
+(Download available at assets/demo.mov)
