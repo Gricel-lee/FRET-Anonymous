@@ -15,13 +15,13 @@ See [installation guide](fret-electron/docs/_media/installingFRET/installationIn
 The FRET 3.0.0 package is available for direct download in the following archive formats:
 - [.zip](https://github.com/Gricel-lee/FRET-Anonymous/blob/main/fret-3.0.0.zip) — suitable for Windows users
 - [.tar](https://raw.githubusercontent.com/Gricel-lee/FRET-Anonymous/main/fret-3.0.0.tar) — suitable for Unix/Linux users
-- [Executables](https://github.com/Gricel-lee/FRET-Anonymous/executables)
+- [.tgz](https://github.com/Gricel-lee/FRET-Anonymous/tree/main/executables) — executables files
 
 FRET has been tested across a variety of architecture and operating system combinations. It has been validated on multiple versions and distributions of macOS, Linux and Windows.
 
 Evaluation datasets
 ---------
-Repository of probabilistic logic formulas: [FRET-paper-evaluation](https://github.com/Gricel-lee/FRET-Anonymous)
+Repository of probabilistic logic formulas downloadable [here](https://github.com/Gricel-lee/FRET-Anonymous/tree/main/FRET-paper-evaluation).
 
 Contributors
 ------------
