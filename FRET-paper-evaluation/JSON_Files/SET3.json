@@ -1,0 +1,2040 @@
+[
+    {
+        "reqid": "R5",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ !\"down\" U \"fail_io\" ];",
+        "comments": "",
+        "fulltext": "IOSystem shall with probability >=0.5 until fail_io satisfy !down",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "until",
+            "response": "satisfaction",
+            "variables": [
+                "fail_io",
+                "down"
+            ],
+            "component_name": "IOSystem",
+            "componentTextRange": [
+                0,
+                7
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                15,
+                36
+            ],
+            "stop_condition": "(fail_io)",
+            "timingTextRange": [
+                38,
+                50
+            ],
+            "post_condition": "(! down)",
+            "responseTextRange": [
+                52,
+                64
+            ],
+            "diagramVariables": "SC = <b><i>(fail_io)</i></b>, Response = <b><i>(! down)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must remain true until (but not necessarily including) the point where the stop condition holds, or to the end of the interval. If the stop condition never occurs, RES must hold until the end of the scope, or forever.  If the stop condition holds at the trigger, the requirement is satisfied.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_until_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(! down)",
+            "post_condition_unexp_ft": "(! down)",
+            "post_condition_unexp_pctl": "(! down)",
+            "post_condition_SMV_pt": "(! down)",
+            "post_condition_SMV_ft": "(! down)",
+            "post_condition_PRISM_pctl": "(! down)",
+            "stop_condition_unexp_pt": "fail_io",
+            "stop_condition_unexp_ft": "fail_io",
+            "stop_condition_PRISM_pctl": "fail_io",
+            "stop_condition_SMV_pt": "fail_io",
+            "stop_condition_SMV_ft": "fail_io",
+            "ft": "((fail_io V ((! down) | fail_io)) | (LAST V (! down)))",
+            "pt": "(H ((H (! fail_io)) -> (! down)))",
+            "pctl": "(P>=0.5[((undefined R ((! down) | undefined)) | (LAST R (! down)))])",
+            "ptExpanded": "(H ((H (! fail_io)) -> (! down)))",
+            "CoCoSpecCode": "H((H(not (fail_io)) => not (down)))",
+            "ftExpanded": "((fail_io V ((! down) | fail_io)) | (LAST V (! down)))",
+            "pctlExpanded": "(P>=0.5[((fail_io R ((! down) | fail_io)) | (false R (! down)))])",
+            "ftInfAUExpanded": "(fail_io V ((! down) | fail_io))",
+            "component": "IOSystem"
+        },
+        "status": "",
+        "_id": "6881b4a0-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R25",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F observe0>1 ]",
+        "comments": "",
+        "fulltext": "Adversary shall with probability >= 0.5  eventually satisfy  observe0>1",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "observe0"
+            ],
+            "component_name": "Adversary",
+            "componentTextRange": [
+                0,
+                8
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                16,
+                38
+            ],
+            "timingTextRange": [
+                41,
+                50
+            ],
+            "post_condition": "(observe0 > 1)",
+            "responseTextRange": [
+                52,
+                70
+            ],
+            "diagramVariables": "Response = <b><i>(observe0 > 1)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(observe0 > 1)",
+            "post_condition_unexp_ft": "(observe0 > 1)",
+            "post_condition_unexp_pctl": "(observe0 > 1)",
+            "post_condition_SMV_pt": "(observe0 > 1)",
+            "post_condition_SMV_ft": "(observe0 > 1)",
+            "post_condition_PRISM_pctl": "(observe0 > 1)",
+            "ft": "((! LAST) U (observe0 > 1))",
+            "pt": "(O (observe0 > 1))",
+            "pctl": "(P>=0.5[(F (observe0 > 1))])",
+            "ptExpanded": "(O (observe0 > 1))",
+            "CoCoSpecCode": "O((observe0 > 1))",
+            "ftExpanded": "((! LAST) U (observe0 > 1))",
+            "pctlExpanded": "(P>=0.5[(F (observe0 > 1))])",
+            "ftInfAUExpanded": "(F (observe0 > 1))",
+            "component": "Adversary"
+        },
+        "status": "",
+        "_id": "6881b4a1-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R6",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ !\"down\" U \"fail_main\" ];",
+        "comments": "",
+        "fulltext": "System shall with probability >=0.5 until fail_main satisfy !down",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "until",
+            "response": "satisfaction",
+            "variables": [
+                "fail_main",
+                "down"
+            ],
+            "component_name": "System",
+            "componentTextRange": [
+                0,
+                5
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                13,
+                34
+            ],
+            "stop_condition": "(fail_main)",
+            "timingTextRange": [
+                36,
+                50
+            ],
+            "post_condition": "(! down)",
+            "responseTextRange": [
+                52,
+                64
+            ],
+            "diagramVariables": "SC = <b><i>(fail_main)</i></b>, Response = <b><i>(! down)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must remain true until (but not necessarily including) the point where the stop condition holds, or to the end of the interval. If the stop condition never occurs, RES must hold until the end of the scope, or forever.  If the stop condition holds at the trigger, the requirement is satisfied.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_until_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(! down)",
+            "post_condition_unexp_ft": "(! down)",
+            "post_condition_unexp_pctl": "(! down)",
+            "post_condition_SMV_pt": "(! down)",
+            "post_condition_SMV_ft": "(! down)",
+            "post_condition_PRISM_pctl": "(! down)",
+            "stop_condition_unexp_pt": "fail_main",
+            "stop_condition_unexp_ft": "fail_main",
+            "stop_condition_PRISM_pctl": "fail_main",
+            "stop_condition_SMV_pt": "fail_main",
+            "stop_condition_SMV_ft": "fail_main",
+            "ft": "((fail_main V ((! down) | fail_main)) | (LAST V (! down)))",
+            "pt": "(H ((H (! fail_main)) -> (! down)))",
+            "pctl": "(P>=0.5[((undefined R ((! down) | undefined)) | (LAST R (! down)))])",
+            "ptExpanded": "(H ((H (! fail_main)) -> (! down)))",
+            "CoCoSpecCode": "H((H(not (fail_main)) => not (down)))",
+            "ftExpanded": "((fail_main V ((! down) | fail_main)) | (LAST V (! down)))",
+            "pctlExpanded": "(P>=0.5[((fail_main R ((! down) | fail_main)) | (false R (! down)))])",
+            "ftInfAUExpanded": "(fail_main V ((! down) | fail_main))",
+            "component": "System"
+        },
+        "status": "",
+        "_id": "6881b4a2-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R26",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F !\"knowA\" & \"knowB\" ];",
+        "comments": "",
+        "fulltext": "System shall with probability >= 0.5  eventually satisfy  !knowA & knowB",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "knowA",
+                "knowB"
+            ],
+            "component_name": "System",
+            "componentTextRange": [
+                0,
+                5
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                13,
+                35
+            ],
+            "timingTextRange": [
+                38,
+                47
+            ],
+            "post_condition": "(! knowA & knowB)",
+            "responseTextRange": [
+                49,
+                71
+            ],
+            "diagramVariables": "Response = <b><i>(! knowA & knowB)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "((! knowA) & knowB)",
+            "post_condition_unexp_ft": "((! knowA) & knowB)",
+            "post_condition_unexp_pctl": "((! knowA) & knowB)",
+            "post_condition_SMV_pt": "((! knowA) & knowB)",
+            "post_condition_SMV_ft": "((! knowA) & knowB)",
+            "post_condition_PRISM_pctl": "((! knowA) & knowB)",
+            "ft": "((! LAST) U ((! knowA) & knowB))",
+            "pt": "(O ((! knowA) & knowB))",
+            "pctl": "(P>=0.5[(F ((! knowA) & knowB))])",
+            "ptExpanded": "(O ((! knowA) & knowB))",
+            "CoCoSpecCode": "O((not (knowA) and knowB))",
+            "ftExpanded": "((! LAST) U ((! knowA) & knowB))",
+            "pctlExpanded": "(P>=0.5[(F ((! knowA) & knowB))])",
+            "ftInfAUExpanded": "(F ((! knowA) & knowB))",
+            "component": "System"
+        },
+        "status": "",
+        "_id": "6881b4a3-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R7",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ !\"down\" U \"fail_sensors\" ];",
+        "comments": "",
+        "fulltext": "System shall with probability >=0.5 until fail_sensors satisfy !down",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "until",
+            "response": "satisfaction",
+            "variables": [
+                "fail_sensors",
+                "down"
+            ],
+            "component_name": "System",
+            "componentTextRange": [
+                0,
+                5
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                13,
+                34
+            ],
+            "stop_condition": "(fail_sensors)",
+            "timingTextRange": [
+                36,
+                53
+            ],
+            "post_condition": "(! down)",
+            "responseTextRange": [
+                55,
+                67
+            ],
+            "diagramVariables": "SC = <b><i>(fail_sensors)</i></b>, Response = <b><i>(! down)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must remain true until (but not necessarily including) the point where the stop condition holds, or to the end of the interval. If the stop condition never occurs, RES must hold until the end of the scope, or forever.  If the stop condition holds at the trigger, the requirement is satisfied.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_until_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(! down)",
+            "post_condition_unexp_ft": "(! down)",
+            "post_condition_unexp_pctl": "(! down)",
+            "post_condition_SMV_pt": "(! down)",
+            "post_condition_SMV_ft": "(! down)",
+            "post_condition_PRISM_pctl": "(! down)",
+            "stop_condition_unexp_pt": "fail_sensors",
+            "stop_condition_unexp_ft": "fail_sensors",
+            "stop_condition_PRISM_pctl": "fail_sensors",
+            "stop_condition_SMV_pt": "fail_sensors",
+            "stop_condition_SMV_ft": "fail_sensors",
+            "ft": "((fail_sensors V ((! down) | fail_sensors)) | (LAST V (! down)))",
+            "pt": "(H ((H (! fail_sensors)) -> (! down)))",
+            "pctl": "(P>=0.5[((undefined R ((! down) | undefined)) | (LAST R (! down)))])",
+            "ptExpanded": "(H ((H (! fail_sensors)) -> (! down)))",
+            "CoCoSpecCode": "H((H(not (fail_sensors)) => not (down)))",
+            "ftExpanded": "((fail_sensors V ((! down) | fail_sensors)) | (LAST V (! down)))",
+            "pctlExpanded": "(P>=0.5[((fail_sensors R ((! down) | fail_sensors)) | (false R (! down)))])",
+            "ftInfAUExpanded": "(fail_sensors V ((! down) | fail_sensors))",
+            "component": "System"
+        },
+        "status": "",
+        "_id": "6881b4a4-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R27",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F !\"knowB\" & \"knowA\" ];",
+        "comments": "",
+        "fulltext": "System shall with probability >= 0.5  eventually satisfy  knowA & !knowB",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "knowA",
+                "knowB"
+            ],
+            "component_name": "System",
+            "componentTextRange": [
+                0,
+                5
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                13,
+                35
+            ],
+            "timingTextRange": [
+                38,
+                47
+            ],
+            "post_condition": "(knowA & ! knowB)",
+            "responseTextRange": [
+                49,
+                71
+            ],
+            "diagramVariables": "Response = <b><i>(knowA & ! knowB)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(knowA & (! knowB))",
+            "post_condition_unexp_ft": "(knowA & (! knowB))",
+            "post_condition_unexp_pctl": "(knowA & (! knowB))",
+            "post_condition_SMV_pt": "(knowA & (! knowB))",
+            "post_condition_SMV_ft": "(knowA & (! knowB))",
+            "post_condition_PRISM_pctl": "(knowA & (! knowB))",
+            "ft": "((! LAST) U (knowA & (! knowB)))",
+            "pt": "(O (knowA & (! knowB)))",
+            "pctl": "(P>=0.5[(F (knowA & (! knowB)))])",
+            "ptExpanded": "(O (knowA & (! knowB)))",
+            "CoCoSpecCode": "O((knowA and not (knowB)))",
+            "ftExpanded": "((! LAST) U (knowA & (! knowB)))",
+            "pctlExpanded": "(P>=0.5[(F (knowA & (! knowB)))])",
+            "ftInfAUExpanded": "(F (knowA & (! knowB)))",
+            "component": "System"
+        },
+        "status": "",
+        "_id": "6881b4a5-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R8",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P>5e-8 [ F<=10 p2 > 10 ];",
+        "comments": "",
+        "fulltext": "Protein2Concentration shall with probability >= 0.00000005 within 10 ticks satisfy p2>10",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "p2"
+            ],
+            "component_name": "Protein2Concentration",
+            "componentTextRange": [
+                0,
+                20
+            ],
+            "probability_bound": [
+                ">=",
+                "0.00000005"
+            ],
+            "probabilityTextRange": [
+                28,
+                57
+            ],
+            "duration": "10",
+            "timingTextRange": [
+                59,
+                73
+            ],
+            "post_condition": "(p2 > 10)",
+            "responseTextRange": [
+                75,
+                87
+            ],
+            "diagramVariables": " n = <b><i>10</i></b>, Response = <b><i>(p2 > 10)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>10</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>10</i></b>). If the interval ends sooner than trigger+<b><i>10</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.00000005",
+            "post_condition_unexp_pt": "(p2 > 10)",
+            "post_condition_unexp_ft": "(p2 > 10)",
+            "post_condition_unexp_pctl": "(p2 > 10)",
+            "post_condition_SMV_pt": "(p2 > 10)",
+            "post_condition_SMV_ft": "(p2 > 10)",
+            "post_condition_PRISM_pctl": "(p2 > 10)",
+            "ft": "((F[<=10] (p2 > 10)) | (F[<10] LAST))",
+            "pt": "(H ((H (! (p2 > 10))) -> (O[<10] (Z FALSE))))",
+            "pctl": "(P>=0.00000005[(F<=10 (p2 > 10))])",
+            "ptExpanded": "(H ((H (! (p2 > 10))) -> (O[0,9] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not ((p2 > 10))) => OT(9, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,10] (p2 > 10)) | (F[0,9] LAST))",
+            "pctlExpanded": "(P>=0.00000005[(F<=10 (p2 > 10))])",
+            "ftInfAUExpanded": "(F[0,10] (p2 > 10))",
+            "component": "Protein2Concentration"
+        },
+        "status": "",
+        "_id": "6881b4a6-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R28",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F \"Target\" ];",
+        "comments": "",
+        "fulltext": "System shall with probability >= 0.5  eventually satisfy  target",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "target"
+            ],
+            "component_name": "System",
+            "componentTextRange": [
+                0,
+                5
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                13,
+                35
+            ],
+            "timingTextRange": [
+                38,
+                47
+            ],
+            "post_condition": "(target)",
+            "responseTextRange": [
+                49,
+                63
+            ],
+            "diagramVariables": "Response = <b><i>(target)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "target",
+            "post_condition_unexp_ft": "target",
+            "post_condition_unexp_pctl": "target",
+            "post_condition_SMV_pt": "target",
+            "post_condition_SMV_ft": "target",
+            "post_condition_PRISM_pctl": "target",
+            "ft": "((! LAST) U target)",
+            "pt": "(O target)",
+            "pctl": "(P>=0.5[(F target)])",
+            "ptExpanded": "(O target)",
+            "CoCoSpecCode": "O(target)",
+            "ftExpanded": "((! LAST) U target)",
+            "pctlExpanded": "(P>=0.5[(F target)])",
+            "ftInfAUExpanded": "(F target)",
+            "component": "System"
+        },
+        "status": "",
+        "_id": "6881b4a7-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R9",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P>1e-33 [ F<=10 p2 > 5 & p1 > 5 ];",
+        "comments": "",
+        "fulltext": "Protein2Concentration shall with probability >= 0.0000000000000000000000000000000001 within 10 ticks satisfy p2>10 & p1>5",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "p2",
+                "p1"
+            ],
+            "component_name": "Protein2Concentration",
+            "componentTextRange": [
+                0,
+                20
+            ],
+            "probability_bound": [
+                ">=",
+                "0.0000000000000000000000000000000001"
+            ],
+            "probabilityTextRange": [
+                28,
+                83
+            ],
+            "duration": "10",
+            "timingTextRange": [
+                85,
+                99
+            ],
+            "post_condition": "(p2 > 10 & p1 > 5)",
+            "responseTextRange": [
+                101,
+                120
+            ],
+            "diagramVariables": " n = <b><i>10</i></b>, Response = <b><i>(p2 > 10 & p1 > 5)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>10</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>10</i></b>). If the interval ends sooner than trigger+<b><i>10</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.0000000000000000000000000000000001",
+            "post_condition_unexp_pt": "((p2 > 10) & (p1 > 5))",
+            "post_condition_unexp_ft": "((p2 > 10) & (p1 > 5))",
+            "post_condition_unexp_pctl": "((p2 > 10) & (p1 > 5))",
+            "post_condition_SMV_pt": "((p2 > 10) & (p1 > 5))",
+            "post_condition_SMV_ft": "((p2 > 10) & (p1 > 5))",
+            "post_condition_PRISM_pctl": "((p2 > 10) & (p1 > 5))",
+            "ft": "((F[<=10] ((p2 > 10) & (p1 > 5))) | (F[<10] LAST))",
+            "pt": "(H ((H (! ((p2 > 10) & (p1 > 5)))) -> (O[<10] (Z FALSE))))",
+            "pctl": "(P>=0.0000000000000000000000000000000001[(F<=10 ((p2 > 10) & (p1 > 5)))])",
+            "ptExpanded": "(H ((H (! ((p2 > 10) & (p1 > 5)))) -> (O[0,9] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not (((p2 > 10) and (p1 > 5)))) => OT(9, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,10] ((p2 > 10) & (p1 > 5))) | (F[0,9] LAST))",
+            "pctlExpanded": "(P>=0.0000000000000000000000000000000001[(F<=10 ((p2 > 10) & (p1 > 5)))])",
+            "ftInfAUExpanded": "(F[0,10] ((p2 > 10) & (p1 > 5)))",
+            "component": "Protein2Concentration"
+        },
+        "status": "",
+        "_id": "6881b4a8-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R29",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P>=1 [ F \"elected\" ];",
+        "comments": "",
+        "fulltext": "Leader shall eventually satisfy  elected",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "null",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "elected"
+            ],
+            "component_name": "Leader",
+            "componentTextRange": [
+                0,
+                5
+            ],
+            "timingTextRange": [
+                13,
+                22
+            ],
+            "post_condition": "(elected)",
+            "responseTextRange": [
+                24,
+                39
+            ],
+            "diagramVariables": "Response = <b><i>(elected)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "post_condition_unexp_pt": "elected",
+            "post_condition_unexp_ft": "elected",
+            "post_condition_unexp_pctl": "elected",
+            "post_condition_SMV_pt": "elected",
+            "post_condition_SMV_ft": "elected",
+            "post_condition_PRISM_pctl": "elected",
+            "ft": "((! LAST) U elected)",
+            "pt": "(O elected)",
+            "pctl": "(P>=1[(F elected)])",
+            "ptExpanded": "(O elected)",
+            "CoCoSpecCode": "O(elected)",
+            "ftExpanded": "((! LAST) U elected)",
+            "pctlExpanded": "(P>=1[(F elected)])",
+            "ftInfAUExpanded": "(F elected)",
+            "component": "Leader"
+        },
+        "status": "",
+        "_id": "6881b4a9-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R10",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F<=T ((EE > 40) & (CC < 20)) ];",
+        "comments": "",
+        "fulltext": "toggleSwitch shall with probability >=0.5 within 10 ticks satisfy (EE>40) & (CC<20)",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "EE",
+                "CC"
+            ],
+            "component_name": "toggleSwitch",
+            "componentTextRange": [
+                0,
+                11
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                19,
+                40
+            ],
+            "duration": "10",
+            "timingTextRange": [
+                42,
+                56
+            ],
+            "post_condition": "(( EE > 40 ) & ( CC < 20 ))",
+            "responseTextRange": [
+                58,
+                82
+            ],
+            "diagramVariables": " n = <b><i>10</i></b>, Response = <b><i>(( EE > 40 ) & ( CC < 20 ))</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>10</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>10</i></b>). If the interval ends sooner than trigger+<b><i>10</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "((EE > 40) & (CC < 20))",
+            "post_condition_unexp_ft": "((EE > 40) & (CC < 20))",
+            "post_condition_unexp_pctl": "((EE > 40) & (CC < 20))",
+            "post_condition_SMV_pt": "((EE > 40) & (CC < 20))",
+            "post_condition_SMV_ft": "((EE > 40) & (CC < 20))",
+            "post_condition_PRISM_pctl": "((EE > 40) & (CC < 20))",
+            "ft": "((F[<=10] ((EE > 40) & (CC < 20))) | (F[<10] LAST))",
+            "pt": "(H ((H (! ((EE > 40) & (CC < 20)))) -> (O[<10] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=10 ((EE > 40) & (CC < 20)))])",
+            "ptExpanded": "(H ((H (! ((EE > 40) & (CC < 20)))) -> (O[0,9] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not (((EE > 40) and (CC < 20)))) => OT(9, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,10] ((EE > 40) & (CC < 20))) | (F[0,9] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=10 ((EE > 40) & (CC < 20)))])",
+            "ftInfAUExpanded": "(F[0,10] ((EE > 40) & (CC < 20)))",
+            "component": "toggleSwitch"
+        },
+        "status": "",
+        "_id": "6881b4aa-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R30",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F s=4 & z/N<0.1 ];",
+        "comments": "",
+        "fulltext": "System shall with probability >= 0.5  eventually satisfy   s=4 & z/N<0.1",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "s",
+                "z",
+                "N"
+            ],
+            "component_name": "System",
+            "componentTextRange": [
+                0,
+                5
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                13,
+                35
+            ],
+            "timingTextRange": [
+                38,
+                47
+            ],
+            "post_condition": "(s = 4 & z / N < 0.1)",
+            "responseTextRange": [
+                49,
+                71
+            ],
+            "diagramVariables": "Response = <b><i>(s = 4 & z / N < 0.1)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "((s = 4) & ((z / N) < 0.1))",
+            "post_condition_unexp_ft": "((s = 4) & ((z / N) < 0.1))",
+            "post_condition_unexp_pctl": "((s = 4) & ((z / N) < 0.1))",
+            "post_condition_SMV_pt": "((s = 4) & ((z / N) < 0.1))",
+            "post_condition_SMV_ft": "((s = 4) & ((z / N) < 0.1))",
+            "post_condition_PRISM_pctl": "((s = 4) & ((z / N) < 0.1))",
+            "ft": "((! LAST) U ((s = 4) & ((z / N) < 0.1)))",
+            "pt": "(O ((s = 4) & ((z / N) < 0.1)))",
+            "pctl": "(P>=0.5[(F ((s = 4) & ((z / N) < 0.1)))])",
+            "ptExpanded": "(O ((s = 4) & ((z / N) < 0.1)))",
+            "CoCoSpecCode": "O(((s = 4) and ((z / N) < 0.1)))",
+            "ftExpanded": "((! LAST) U ((s = 4) & ((z / N) < 0.1)))",
+            "pctlExpanded": "(P>=0.5[(F ((s = 4) & ((z / N) < 0.1)))])",
+            "ftInfAUExpanded": "(F ((s = 4) & ((z / N) < 0.1)))",
+            "component": "System"
+        },
+        "status": "",
+        "_id": "6881b4ab-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R11",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F<=5 p53>120 ];",
+        "comments": "",
+        "fulltext": "p53Concentration shall with probability >= 0.5 within 5 ticks satisfy p53>120",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "p53"
+            ],
+            "component_name": "p53Concentration",
+            "componentTextRange": [
+                0,
+                15
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                23,
+                45
+            ],
+            "duration": "5",
+            "timingTextRange": [
+                47,
+                60
+            ],
+            "post_condition": "(p53 > 120)",
+            "responseTextRange": [
+                62,
+                76
+            ],
+            "diagramVariables": " n = <b><i>5</i></b>, Response = <b><i>(p53 > 120)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>5</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>5</i></b>). If the interval ends sooner than trigger+<b><i>5</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(p53 > 120)",
+            "post_condition_unexp_ft": "(p53 > 120)",
+            "post_condition_unexp_pctl": "(p53 > 120)",
+            "post_condition_SMV_pt": "(p53 > 120)",
+            "post_condition_SMV_ft": "(p53 > 120)",
+            "post_condition_PRISM_pctl": "(p53 > 120)",
+            "ft": "((F[<=5] (p53 > 120)) | (F[<5] LAST))",
+            "pt": "(H ((H (! (p53 > 120))) -> (O[<5] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=5 (p53 > 120))])",
+            "ptExpanded": "(H ((H (! (p53 > 120))) -> (O[0,4] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not ((p53 > 120))) => OT(4, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,5] (p53 > 120)) | (F[0,4] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=5 (p53 > 120))])",
+            "ftInfAUExpanded": "(F[0,5] (p53 > 120))",
+            "component": "p53Concentration"
+        },
+        "status": "",
+        "_id": "6881b4ac-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R12",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F<=100 Mdm2=0 ];",
+        "comments": "",
+        "fulltext": "Mdm2Concentration shall with probability >=0.5 within 100 ticks satisfy (Mdm2=0)",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "Mdm2"
+            ],
+            "component_name": "Mdm2Concentration",
+            "componentTextRange": [
+                0,
+                16
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                24,
+                45
+            ],
+            "duration": "100",
+            "timingTextRange": [
+                47,
+                62
+            ],
+            "post_condition": "(( Mdm2 = 0 ))",
+            "responseTextRange": [
+                64,
+                79
+            ],
+            "diagramVariables": " n = <b><i>100</i></b>, Response = <b><i>(( Mdm2 = 0 ))</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>100</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>100</i></b>). If the interval ends sooner than trigger+<b><i>100</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(Mdm2 = 0)",
+            "post_condition_unexp_ft": "(Mdm2 = 0)",
+            "post_condition_unexp_pctl": "(Mdm2 = 0)",
+            "post_condition_SMV_pt": "(Mdm2 = 0)",
+            "post_condition_SMV_ft": "(Mdm2 = 0)",
+            "post_condition_PRISM_pctl": "(Mdm2 = 0)",
+            "ft": "((F[<=100] (Mdm2 = 0)) | (F[<100] LAST))",
+            "pt": "(H ((H (! (Mdm2 = 0))) -> (O[<100] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=100 (Mdm2 = 0))])",
+            "ptExpanded": "(H ((H (! (Mdm2 = 0))) -> (O[0,99] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not ((Mdm2 = 0))) => OT(99, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,100] (Mdm2 = 0)) | (F[0,99] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=100 (Mdm2 = 0))])",
+            "ftInfAUExpanded": "(F[0,100] (Mdm2 = 0))",
+            "component": "Mdm2Concentration"
+        },
+        "status": "",
+        "_id": "6881b4ad-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R13",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F<=100 p53>150&pMdm2>150&Mdm2>150 ];",
+        "comments": "",
+        "fulltext": "concentration shall with probability >=0.5 within 100 ticks satisfy p53>150&pMdm2>150&Mdm2>150",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "p53",
+                "pMdm2",
+                "Mdm2"
+            ],
+            "component_name": "concentration",
+            "componentTextRange": [
+                0,
+                12
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                20,
+                41
+            ],
+            "duration": "100",
+            "timingTextRange": [
+                43,
+                58
+            ],
+            "post_condition": "(p53 > 150 & pMdm2 > 150 & Mdm2 > 150)",
+            "responseTextRange": [
+                60,
+                93
+            ],
+            "diagramVariables": " n = <b><i>100</i></b>, Response = <b><i>(p53 > 150 & pMdm2 > 150 & Mdm2 > 150)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>100</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>100</i></b>). If the interval ends sooner than trigger+<b><i>100</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150))",
+            "post_condition_unexp_ft": "(((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150))",
+            "post_condition_unexp_pctl": "(((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150))",
+            "post_condition_SMV_pt": "(((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150))",
+            "post_condition_SMV_ft": "(((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150))",
+            "post_condition_PRISM_pctl": "(((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150))",
+            "ft": "((F[<=100] (((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150))) | (F[<100] LAST))",
+            "pt": "(H ((H (! (((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150)))) -> (O[<100] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=100 (((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150)))])",
+            "ptExpanded": "(H ((H (! (((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150)))) -> (O[0,99] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not ((((p53 > 150) and (pMdm2 > 150)) and (Mdm2 > 150)))) => OT(99, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,100] (((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150))) | (F[0,99] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=100 (((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150)))])",
+            "ftInfAUExpanded": "(F[0,100] (((p53 > 150) & (pMdm2 > 150)) & (Mdm2 > 150)))",
+            "component": "concentration"
+        },
+        "status": "",
+        "_id": "6881b4ae-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R14",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ !(s=2 & a=1) U (s=1 & a=1) ];",
+        "comments": "",
+        "fulltext": "station shall with probability >=0.5 until (s=1 & a=1) satisfy !(s=2 & a=1)",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "until",
+            "response": "satisfaction",
+            "variables": [
+                "s",
+                "a"
+            ],
+            "component_name": "station",
+            "componentTextRange": [
+                0,
+                6
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                14,
+                35
+            ],
+            "stop_condition": "(( s = 1 & a = 1 ))",
+            "timingTextRange": [
+                37,
+                53
+            ],
+            "post_condition": "(! ( s = 2 & a = 1 ))",
+            "responseTextRange": [
+                55,
+                74
+            ],
+            "diagramVariables": "SC = <b><i>(( s = 1 & a = 1 ))</i></b>, Response = <b><i>(! ( s = 2 & a = 1 ))</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must remain true until (but not necessarily including) the point where the stop condition holds, or to the end of the interval. If the stop condition never occurs, RES must hold until the end of the scope, or forever.  If the stop condition holds at the trigger, the requirement is satisfied.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_until_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(! ((s = 2) & (a = 1)))",
+            "post_condition_unexp_ft": "(! ((s = 2) & (a = 1)))",
+            "post_condition_unexp_pctl": "(! ((s = 2) & (a = 1)))",
+            "post_condition_SMV_pt": "(! ((s = 2) & (a = 1)))",
+            "post_condition_SMV_ft": "(! ((s = 2) & (a = 1)))",
+            "post_condition_PRISM_pctl": "(! ((s = 2) & (a = 1)))",
+            "stop_condition_unexp_pt": "((s = 1) & (a = 1))",
+            "stop_condition_unexp_ft": "((s = 1) & (a = 1))",
+            "stop_condition_PRISM_pctl": "((s = 1) & (a = 1))",
+            "stop_condition_SMV_pt": "((s = 1) & (a = 1))",
+            "stop_condition_SMV_ft": "((s = 1) & (a = 1))",
+            "ft": "((((s = 1) & (a = 1)) V ((! ((s = 2) & (a = 1))) | ((s = 1) & (a = 1)))) | (LAST V (! ((s = 2) & (a = 1)))))",
+            "pt": "(H ((H (! ((s = 1) & (a = 1)))) -> (! ((s = 2) & (a = 1)))))",
+            "pctl": "(P>=0.5[((undefined R ((! ((s = 2) & (a = 1))) | undefined)) | (LAST R (! ((s = 2) & (a = 1)))))])",
+            "ptExpanded": "(H ((H (! ((s = 1) & (a = 1)))) -> (! ((s = 2) & (a = 1)))))",
+            "CoCoSpecCode": "H((H(not (((s = 1) and (a = 1)))) => not (((s = 2) and (a = 1)))))",
+            "ftExpanded": "((((s = 1) & (a = 1)) V ((! ((s = 2) & (a = 1))) | ((s = 1) & (a = 1)))) | (LAST V (! ((s = 2) & (a = 1)))))",
+            "pctlExpanded": "(P>=0.5[((((s = 1) & (a = 1)) R ((! ((s = 2) & (a = 1))) | ((s = 1) & (a = 1)))) | (false R (! ((s = 2) & (a = 1)))))])",
+            "ftInfAUExpanded": "(((s = 1) & (a = 1)) V ((! ((s = 2) & (a = 1))) | ((s = 1) & (a = 1))))",
+            "component": "station"
+        },
+        "status": "",
+        "_id": "6881b4af-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R15",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F<=T (s=1 & a=0) ];",
+        "comments": "",
+        "fulltext": "Station shall with probability >= 0.5 within 5 ticks satisfy s=1 & a=0",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "s",
+                "a"
+            ],
+            "component_name": "Station",
+            "componentTextRange": [
+                0,
+                6
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                14,
+                36
+            ],
+            "duration": "5",
+            "timingTextRange": [
+                38,
+                51
+            ],
+            "post_condition": "(s = 1 & a = 0)",
+            "responseTextRange": [
+                53,
+                69
+            ],
+            "diagramVariables": " n = <b><i>5</i></b>, Response = <b><i>(s = 1 & a = 0)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>5</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>5</i></b>). If the interval ends sooner than trigger+<b><i>5</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "((s = 1) & (a = 0))",
+            "post_condition_unexp_ft": "((s = 1) & (a = 0))",
+            "post_condition_unexp_pctl": "((s = 1) & (a = 0))",
+            "post_condition_SMV_pt": "((s = 1) & (a = 0))",
+            "post_condition_SMV_ft": "((s = 1) & (a = 0))",
+            "post_condition_PRISM_pctl": "((s = 1) & (a = 0))",
+            "ft": "((F[<=5] ((s = 1) & (a = 0))) | (F[<5] LAST))",
+            "pt": "(H ((H (! ((s = 1) & (a = 0)))) -> (O[<5] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=5 ((s = 1) & (a = 0)))])",
+            "ptExpanded": "(H ((H (! ((s = 1) & (a = 0)))) -> (O[0,4] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not (((s = 1) and (a = 0)))) => OT(4, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,5] ((s = 1) & (a = 0))) | (F[0,4] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=5 ((s = 1) & (a = 0)))])",
+            "ftInfAUExpanded": "(F[0,5] ((s = 1) & (a = 0)))",
+            "component": "Station"
+        },
+        "status": "",
+        "_id": "6881b4b0-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R16",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F<=T ((S2 > 80) & (S3 < 20)) ];",
+        "comments": "",
+        "fulltext": "ToggleSwitchSystem shall with probability >= 0.5 within 5 ticks satisfy S2 > 80 & S3 < 20",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "S2",
+                "S3"
+            ],
+            "component_name": "ToggleSwitchSystem",
+            "componentTextRange": [
+                0,
+                17
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                25,
+                47
+            ],
+            "duration": "5",
+            "timingTextRange": [
+                49,
+                62
+            ],
+            "post_condition": "(S2 > 80 & S3 < 20)",
+            "responseTextRange": [
+                64,
+                88
+            ],
+            "diagramVariables": " n = <b><i>5</i></b>, Response = <b><i>(S2 > 80 & S3 < 20)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>5</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>5</i></b>). If the interval ends sooner than trigger+<b><i>5</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "((S2 > 80) & (S3 < 20))",
+            "post_condition_unexp_ft": "((S2 > 80) & (S3 < 20))",
+            "post_condition_unexp_pctl": "((S2 > 80) & (S3 < 20))",
+            "post_condition_SMV_pt": "((S2 > 80) & (S3 < 20))",
+            "post_condition_SMV_ft": "((S2 > 80) & (S3 < 20))",
+            "post_condition_PRISM_pctl": "((S2 > 80) & (S3 < 20))",
+            "ft": "((F[<=5] ((S2 > 80) & (S3 < 20))) | (F[<5] LAST))",
+            "pt": "(H ((H (! ((S2 > 80) & (S3 < 20)))) -> (O[<5] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=5 ((S2 > 80) & (S3 < 20)))])",
+            "ptExpanded": "(H ((H (! ((S2 > 80) & (S3 < 20)))) -> (O[0,4] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not (((S2 > 80) and (S3 < 20)))) => OT(4, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,5] ((S2 > 80) & (S3 < 20))) | (F[0,4] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=5 ((S2 > 80) & (S3 < 20)))])",
+            "ftInfAUExpanded": "(F[0,5] ((S2 > 80) & (S3 < 20)))",
+            "component": "ToggleSwitchSystem"
+        },
+        "status": "",
+        "_id": "6881b4b1-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R17",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F<=t sc=c ];",
+        "comments": "",
+        "fulltext": "Queue shall with probability >= 0.5 within 5 ticks satisfy sc=c",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "sc",
+                "c"
+            ],
+            "component_name": "Queue",
+            "componentTextRange": [
+                0,
+                4
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                12,
+                34
+            ],
+            "duration": "5",
+            "timingTextRange": [
+                36,
+                49
+            ],
+            "post_condition": "(sc = c)",
+            "responseTextRange": [
+                51,
+                62
+            ],
+            "diagramVariables": " n = <b><i>5</i></b>, Response = <b><i>(sc = c)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>5</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>5</i></b>). If the interval ends sooner than trigger+<b><i>5</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(sc = c)",
+            "post_condition_unexp_ft": "(sc = c)",
+            "post_condition_unexp_pctl": "(sc = c)",
+            "post_condition_SMV_pt": "(sc = c)",
+            "post_condition_SMV_ft": "(sc = c)",
+            "post_condition_PRISM_pctl": "(sc = c)",
+            "ft": "((F[<=5] (sc = c)) | (F[<5] LAST))",
+            "pt": "(H ((H (! (sc = c))) -> (O[<5] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=5 (sc = c))])",
+            "ptExpanded": "(H ((H (! (sc = c))) -> (O[0,4] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not ((sc = c))) => OT(4, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,5] (sc = c)) | (F[0,4] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=5 (sc = c))])",
+            "ftInfAUExpanded": "(F[0,5] (sc = c))",
+            "component": "Queue"
+        },
+        "status": "",
+        "_id": "6881b4b2-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R18",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F<=T sc=c & sm=c & ph=2 ];",
+        "comments": "",
+        "fulltext": "Network shall with probability >= 0.5 within 5 ticks satisfy  sc=c & sm=c & ph=2",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "sc",
+                "c",
+                "sm",
+                "ph"
+            ],
+            "component_name": "Network",
+            "componentTextRange": [
+                0,
+                6
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                14,
+                36
+            ],
+            "duration": "5",
+            "timingTextRange": [
+                38,
+                51
+            ],
+            "post_condition": "(sc = c & sm = c & ph = 2)",
+            "responseTextRange": [
+                53,
+                79
+            ],
+            "diagramVariables": " n = <b><i>5</i></b>, Response = <b><i>(sc = c & sm = c & ph = 2)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>5</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>5</i></b>). If the interval ends sooner than trigger+<b><i>5</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(((sc = c) & (sm = c)) & (ph = 2))",
+            "post_condition_unexp_ft": "(((sc = c) & (sm = c)) & (ph = 2))",
+            "post_condition_unexp_pctl": "(((sc = c) & (sm = c)) & (ph = 2))",
+            "post_condition_SMV_pt": "(((sc = c) & (sm = c)) & (ph = 2))",
+            "post_condition_SMV_ft": "(((sc = c) & (sm = c)) & (ph = 2))",
+            "post_condition_PRISM_pctl": "(((sc = c) & (sm = c)) & (ph = 2))",
+            "ft": "((F[<=5] (((sc = c) & (sm = c)) & (ph = 2))) | (F[<5] LAST))",
+            "pt": "(H ((H (! (((sc = c) & (sm = c)) & (ph = 2)))) -> (O[<5] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=5 (((sc = c) & (sm = c)) & (ph = 2)))])",
+            "ptExpanded": "(H ((H (! (((sc = c) & (sm = c)) & (ph = 2)))) -> (O[0,4] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not ((((sc = c) and (sm = c)) and (ph = 2)))) => OT(4, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,5] (((sc = c) & (sm = c)) & (ph = 2))) | (F[0,4] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=5 (((sc = c) & (sm = c)) & (ph = 2)))])",
+            "ftInfAUExpanded": "(F[0,5] (((sc = c) & (sm = c)) & (ph = 2)))",
+            "component": "Network"
+        },
+        "status": "",
+        "_id": "6881b4b3-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R19",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F[0,T] ((TetR > 40) & (LacI < 20)) ];",
+        "comments": "",
+        "fulltext": "toggleSwitch shall with probability >= 0.5 within 5 ticks satisfy (TetR > 40) & (LacI < 20)",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "TetR",
+                "LacI"
+            ],
+            "component_name": "toggleSwitch",
+            "componentTextRange": [
+                0,
+                11
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                19,
+                41
+            ],
+            "duration": "5",
+            "timingTextRange": [
+                43,
+                56
+            ],
+            "post_condition": "(( TetR > 40 ) & ( LacI < 20 ))",
+            "responseTextRange": [
+                58,
+                90
+            ],
+            "diagramVariables": " n = <b><i>5</i></b>, Response = <b><i>(( TetR > 40 ) & ( LacI < 20 ))</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>5</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>5</i></b>). If the interval ends sooner than trigger+<b><i>5</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "((TetR > 40) & (LacI < 20))",
+            "post_condition_unexp_ft": "((TetR > 40) & (LacI < 20))",
+            "post_condition_unexp_pctl": "((TetR > 40) & (LacI < 20))",
+            "post_condition_SMV_pt": "((TetR > 40) & (LacI < 20))",
+            "post_condition_SMV_ft": "((TetR > 40) & (LacI < 20))",
+            "post_condition_PRISM_pctl": "((TetR > 40) & (LacI < 20))",
+            "ft": "((F[<=5] ((TetR > 40) & (LacI < 20))) | (F[<5] LAST))",
+            "pt": "(H ((H (! ((TetR > 40) & (LacI < 20)))) -> (O[<5] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=5 ((TetR > 40) & (LacI < 20)))])",
+            "ptExpanded": "(H ((H (! ((TetR > 40) & (LacI < 20)))) -> (O[0,4] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not (((TetR > 40) and (LacI < 20)))) => OT(4, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,5] ((TetR > 40) & (LacI < 20))) | (F[0,4] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=5 ((TetR > 40) & (LacI < 20)))])",
+            "ftInfAUExpanded": "(F[0,5] ((TetR > 40) & (LacI < 20)))",
+            "component": "toggleSwitch"
+        },
+        "status": "",
+        "_id": "6881b4b4-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R20",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F s=5 ];",
+        "comments": "",
+        "fulltext": "Sender shall with probability >= 0.5 eventually satisfy  s=5",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "s"
+            ],
+            "component_name": "Sender",
+            "componentTextRange": [
+                0,
+                5
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                13,
+                35
+            ],
+            "timingTextRange": [
+                37,
+                46
+            ],
+            "post_condition": "(s = 5)",
+            "responseTextRange": [
+                48,
+                59
+            ],
+            "diagramVariables": "Response = <b><i>(s = 5)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(s = 5)",
+            "post_condition_unexp_ft": "(s = 5)",
+            "post_condition_unexp_pctl": "(s = 5)",
+            "post_condition_SMV_pt": "(s = 5)",
+            "post_condition_SMV_ft": "(s = 5)",
+            "post_condition_PRISM_pctl": "(s = 5)",
+            "ft": "((! LAST) U (s = 5))",
+            "pt": "(O (s = 5))",
+            "pctl": "(P>=0.5[(F (s = 5))])",
+            "ptExpanded": "(O (s = 5))",
+            "CoCoSpecCode": "O((s = 5))",
+            "ftExpanded": "((! LAST) U (s = 5))",
+            "pctlExpanded": "(P>=0.5[(F (s = 5))])",
+            "ftInfAUExpanded": "(F (s = 5))",
+            "component": "Sender"
+        },
+        "status": "",
+        "_id": "6881b4b5-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R21",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F s=5 & srep=2 ];",
+        "comments": "",
+        "fulltext": "Sender shall with probability >= 0.5 eventually satisfy   s=5 & srep=2",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "s",
+                "srep"
+            ],
+            "component_name": "Sender",
+            "componentTextRange": [
+                0,
+                5
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                13,
+                35
+            ],
+            "timingTextRange": [
+                37,
+                46
+            ],
+            "post_condition": "(s = 5 & srep = 2)",
+            "responseTextRange": [
+                48,
+                69
+            ],
+            "diagramVariables": "Response = <b><i>(s = 5 & srep = 2)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "((s = 5) & (srep = 2))",
+            "post_condition_unexp_ft": "((s = 5) & (srep = 2))",
+            "post_condition_unexp_pctl": "((s = 5) & (srep = 2))",
+            "post_condition_SMV_pt": "((s = 5) & (srep = 2))",
+            "post_condition_SMV_ft": "((s = 5) & (srep = 2))",
+            "post_condition_PRISM_pctl": "((s = 5) & (srep = 2))",
+            "ft": "((! LAST) U ((s = 5) & (srep = 2)))",
+            "pt": "(O ((s = 5) & (srep = 2)))",
+            "pctl": "(P>=0.5[(F ((s = 5) & (srep = 2)))])",
+            "ptExpanded": "(O ((s = 5) & (srep = 2)))",
+            "CoCoSpecCode": "O(((s = 5) and (srep = 2)))",
+            "ftExpanded": "((! LAST) U ((s = 5) & (srep = 2)))",
+            "pctlExpanded": "(P>=0.5[(F ((s = 5) & (srep = 2)))])",
+            "ftInfAUExpanded": "(F ((s = 5) & (srep = 2)))",
+            "component": "Sender"
+        },
+        "status": "",
+        "_id": "6881b4b6-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R1",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F<=T !\"minimum\" ];",
+        "comments": "",
+        "fulltext": "QoS shall with probability >= 0.5 within 10 ticks satisfy !minimum",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "minimum"
+            ],
+            "component_name": "QoS",
+            "componentTextRange": [
+                0,
+                2
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                10,
+                32
+            ],
+            "duration": "10",
+            "timingTextRange": [
+                34,
+                48
+            ],
+            "post_condition": "(! minimum)",
+            "responseTextRange": [
+                50,
+                65
+            ],
+            "diagramVariables": " n = <b><i>10</i></b>, Response = <b><i>(! minimum)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>10</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>10</i></b>). If the interval ends sooner than trigger+<b><i>10</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(! minimum)",
+            "post_condition_unexp_ft": "(! minimum)",
+            "post_condition_unexp_pctl": "(! minimum)",
+            "post_condition_SMV_pt": "(! minimum)",
+            "post_condition_SMV_ft": "(! minimum)",
+            "post_condition_PRISM_pctl": "(! minimum)",
+            "ft": "((F[<=10] (! minimum)) | (F[<10] LAST))",
+            "pt": "(H ((H (! (! minimum))) -> (O[<10] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=10 (! minimum))])",
+            "ptExpanded": "(H ((H minimum) -> (O[0,9] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(minimum) => OT(9, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,10] (! minimum)) | (F[0,9] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=10 (! minimum))])",
+            "ftInfAUExpanded": "(F[0,10] (! minimum))",
+            "component": "QoS"
+        },
+        "status": "",
+        "_id": "6881b4b7-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R22",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F !(srep=0) & !recv ];",
+        "comments": "",
+        "fulltext": "Receiver shall with probability >= 0.5 eventually satisfy  !(srep=0) & !recv",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "srep",
+                "recv"
+            ],
+            "component_name": "Receiver",
+            "componentTextRange": [
+                0,
+                7
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                15,
+                37
+            ],
+            "timingTextRange": [
+                39,
+                48
+            ],
+            "post_condition": "(! ( srep = 0 ) & ! recv)",
+            "responseTextRange": [
+                50,
+                75
+            ],
+            "diagramVariables": "Response = <b><i>(! ( srep = 0 ) & ! recv)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "((! (srep = 0)) & (! recv))",
+            "post_condition_unexp_ft": "((! (srep = 0)) & (! recv))",
+            "post_condition_unexp_pctl": "((! (srep = 0)) & (! recv))",
+            "post_condition_SMV_pt": "((! (srep = 0)) & (! recv))",
+            "post_condition_SMV_ft": "((! (srep = 0)) & (! recv))",
+            "post_condition_PRISM_pctl": "((! (srep = 0)) & (! recv))",
+            "ft": "((! LAST) U ((! (srep = 0)) & (! recv)))",
+            "pt": "(O ((! (srep = 0)) & (! recv)))",
+            "pctl": "(P>=0.5[(F ((! (srep = 0)) & (! recv)))])",
+            "ptExpanded": "(O ((! (srep = 0)) & (! recv)))",
+            "CoCoSpecCode": "O((not ((srep = 0)) and not (recv)))",
+            "ftExpanded": "((! LAST) U ((! (srep = 0)) & (! recv)))",
+            "pctlExpanded": "(P>=0.5[(F ((! (srep = 0)) & (! recv)))])",
+            "ftInfAUExpanded": "(F ((! (srep = 0)) & (! recv)))",
+            "component": "Receiver"
+        },
+        "status": "",
+        "_id": "6881b4b8-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R2",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F[t,t] !\"minimum\" ];",
+        "comments": "",
+        "fulltext": "System shall with probability <=0.5 after 10 ticks satisfy !minimum",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "after",
+            "response": "satisfaction",
+            "variables": [
+                "minimum"
+            ],
+            "component_name": "System",
+            "componentTextRange": [
+                0,
+                5
+            ],
+            "probability_bound": [
+                "<=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                13,
+                34
+            ],
+            "duration": "10",
+            "timingTextRange": [
+                36,
+                49
+            ],
+            "post_condition": "(! minimum)",
+            "responseTextRange": [
+                51,
+                66
+            ],
+            "diagramVariables": " n = <b><i>10</i></b>, Response = <b><i>(! minimum)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must be false at all time points with distance <=<b><i>10</i></b> from the trigger (i.e., trigger, trigger+1, ..., and trigger+<b><i>10</i></b>). Moreover, RES must hold at the point that is at distance <b><i>10</i></b>+1 from the trigger, that is, trigger+<b><i>10</i></b>+1, except if the end of the interval occurs earlier.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_after_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": "<=0.5",
+            "post_condition_unexp_pt": "(! minimum)",
+            "post_condition_unexp_ft": "(! minimum)",
+            "post_condition_unexp_pctl": "(! minimum)",
+            "post_condition_SMV_pt": "(! minimum)",
+            "post_condition_SMV_ft": "(! minimum)",
+            "post_condition_PRISM_pctl": "(! minimum)",
+            "ft": "(((G[<=10] (! (! minimum))) | (LAST V (! (! minimum)))) & ((F[<=10+1] (! minimum)) | (F[<10+1] LAST)))",
+            "pt": "((H ((O[<=10] (Z FALSE)) -> (! (! minimum)))) & (H ((H (! (! minimum))) -> (O[<10+1] (Z FALSE)))))",
+            "pctl": "(P<=0.5[((G<=10 (! (! minimum))) & (F<=(10+1) (! minimum)))])",
+            "ptExpanded": "((H ((O[0,10] (Z FALSE)) -> minimum)) & (H ((H minimum) -> (O[0,10] (Z FALSE)))))",
+            "CoCoSpecCode": "(H((OT(10, 0, ZtoPre(false)) => minimum)) and H((H(minimum) => OT(10, 0, ZtoPre(false)))))",
+            "ftExpanded": "(((G[0,10] minimum) | (LAST V minimum)) & ((F[0,11] (! minimum)) | (F[0,10] LAST)))",
+            "pctlExpanded": "(P<=0.5[((G<=10 (! (! minimum))) & (F<=(10+1) (! minimum)))])",
+            "ftInfAUExpanded": "(((G[0,10] minimum) | (G minimum)) & (F[0,11] (! minimum)))",
+            "component": "System"
+        },
+        "status": "",
+        "_id": "6881b4b9-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R23",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F \"_ret0_\" ];",
+        "comments": "",
+        "fulltext": "CouponCollector shall with probability >= 0.5 eventually satisfy  ret0",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "ret0"
+            ],
+            "component_name": "CouponCollector",
+            "componentTextRange": [
+                0,
+                14
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                22,
+                44
+            ],
+            "timingTextRange": [
+                46,
+                55
+            ],
+            "post_condition": "(ret0)",
+            "responseTextRange": [
+                57,
+                69
+            ],
+            "diagramVariables": "Response = <b><i>(ret0)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "ret0",
+            "post_condition_unexp_ft": "ret0",
+            "post_condition_unexp_pctl": "ret0",
+            "post_condition_SMV_pt": "ret0",
+            "post_condition_SMV_ft": "ret0",
+            "post_condition_PRISM_pctl": "ret0",
+            "ft": "((! LAST) U ret0)",
+            "pt": "(O ret0)",
+            "pctl": "(P>=0.5[(F ret0)])",
+            "ptExpanded": "(O ret0)",
+            "CoCoSpecCode": "O(ret0)",
+            "ftExpanded": "((! LAST) U ret0)",
+            "pctlExpanded": "(P>=0.5[(F ret0)])",
+            "ftInfAUExpanded": "(F ret0)",
+            "component": "CouponCollector"
+        },
+        "status": "",
+        "_id": "6881b4ba-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R3",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ !\"down\" U \"fail_actuators\" ];",
+        "comments": "",
+        "fulltext": "Actuator shall with probability >=0.5 until fail_actuators satisfy !down",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "until",
+            "response": "satisfaction",
+            "variables": [
+                "fail_actuators",
+                "down"
+            ],
+            "component_name": "Actuator",
+            "componentTextRange": [
+                0,
+                7
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                15,
+                36
+            ],
+            "stop_condition": "(fail_actuators)",
+            "timingTextRange": [
+                38,
+                57
+            ],
+            "post_condition": "(! down)",
+            "responseTextRange": [
+                59,
+                71
+            ],
+            "diagramVariables": "SC = <b><i>(fail_actuators)</i></b>, Response = <b><i>(! down)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must remain true until (but not necessarily including) the point where the stop condition holds, or to the end of the interval. If the stop condition never occurs, RES must hold until the end of the scope, or forever.  If the stop condition holds at the trigger, the requirement is satisfied.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_until_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "(! down)",
+            "post_condition_unexp_ft": "(! down)",
+            "post_condition_unexp_pctl": "(! down)",
+            "post_condition_SMV_pt": "(! down)",
+            "post_condition_SMV_ft": "(! down)",
+            "post_condition_PRISM_pctl": "(! down)",
+            "stop_condition_unexp_pt": "fail_actuators",
+            "stop_condition_unexp_ft": "fail_actuators",
+            "stop_condition_PRISM_pctl": "fail_actuators",
+            "stop_condition_SMV_pt": "fail_actuators",
+            "stop_condition_SMV_ft": "fail_actuators",
+            "ft": "((fail_actuators V ((! down) | fail_actuators)) | (LAST V (! down)))",
+            "pt": "(H ((H (! fail_actuators)) -> (! down)))",
+            "pctl": "(P>=0.5[((undefined R ((! down) | undefined)) | (LAST R (! down)))])",
+            "ptExpanded": "(H ((H (! fail_actuators)) -> (! down)))",
+            "CoCoSpecCode": "H((H(not (fail_actuators)) => not (down)))",
+            "ftExpanded": "((fail_actuators V ((! down) | fail_actuators)) | (LAST V (! down)))",
+            "pctlExpanded": "(P>=0.5[((fail_actuators R ((! down) | fail_actuators)) | (false R (! down)))])",
+            "ftInfAUExpanded": "(fail_actuators V ((! down) | fail_actuators))",
+            "component": "Actuator"
+        },
+        "status": "",
+        "_id": "6881b4bb-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R24",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F^{rew{\"numberDraws\"}<=B } \"_ret0_\" ];",
+        "comments": "",
+        "fulltext": "CouponCollector shall with probability >= 0.5  within 1 tick satisfy  ret0",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "ret0"
+            ],
+            "component_name": "CouponCollector",
+            "componentTextRange": [
+                0,
+                14
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                22,
+                44
+            ],
+            "duration": "1",
+            "timingTextRange": [
+                47,
+                59
+            ],
+            "post_condition": "(ret0)",
+            "responseTextRange": [
+                61,
+                73
+            ],
+            "diagramVariables": " n = <b><i>1</i></b>, Response = <b><i>(ret0)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>1</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>1</i></b>). If the interval ends sooner than trigger+<b><i>1</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "ret0",
+            "post_condition_unexp_ft": "ret0",
+            "post_condition_unexp_pctl": "ret0",
+            "post_condition_SMV_pt": "ret0",
+            "post_condition_SMV_ft": "ret0",
+            "post_condition_PRISM_pctl": "ret0",
+            "ft": "((F[<=1] ret0) | (F[<1] LAST))",
+            "pt": "(H ((H (! ret0)) -> (O[<1] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=1 ret0)])",
+            "ptExpanded": "(H ((H (! ret0)) -> (O[0,0] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not (ret0)) => OT(0, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,1] ret0) | (F[0,0] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=1 ret0)])",
+            "ftInfAUExpanded": "(F[0,1] ret0)",
+            "component": "CouponCollector"
+        },
+        "status": "",
+        "_id": "6881b4bc-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R4",
+        "parent_reqid": "",
+        "project": "QCOMP",
+        "rationale": "P=? [ F<=(T*3600) \"down\" ];",
+        "comments": "",
+        "fulltext": "System shall with probability >= 0.5 within 10 hours satisfy down",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "down"
+            ],
+            "component_name": "System",
+            "componentTextRange": [
+                0,
+                5
+            ],
+            "probability_bound": [
+                ">=",
+                "0.5"
+            ],
+            "probabilityTextRange": [
+                13,
+                35
+            ],
+            "duration": "10",
+            "timingTextRange": [
+                37,
+                51
+            ],
+            "post_condition": "(down)",
+            "responseTextRange": [
+                53,
+                64
+            ],
+            "diagramVariables": " n = <b><i>10</i></b>, Response = <b><i>(down)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>10</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>10</i></b>). If the interval ends sooner than trigger+<b><i>10</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.5",
+            "post_condition_unexp_pt": "down",
+            "post_condition_unexp_ft": "down",
+            "post_condition_unexp_pctl": "down",
+            "post_condition_SMV_pt": "down",
+            "post_condition_SMV_ft": "down",
+            "post_condition_PRISM_pctl": "down",
+            "ft": "((F[<=10] down) | (F[<10] LAST))",
+            "pt": "(H ((H (! down)) -> (O[<10] (Z FALSE))))",
+            "pctl": "(P>=0.5[(F<=10 down)])",
+            "ptExpanded": "(H ((H (! down)) -> (O[0,9] (Z FALSE))))",
+            "CoCoSpecCode": "H((H(not (down)) => OT(9, 0, ZtoPre(false))))",
+            "ftExpanded": "((F[0,10] down) | (F[0,9] LAST))",
+            "pctlExpanded": "(P>=0.5[(F<=10 down)])",
+            "ftInfAUExpanded": "(F[0,10] down)",
+            "component": "System"
+        },
+        "status": "",
+        "_id": "6881b4bd-41f1-11f0-bf1e-a1c2a6d8f198"
+    }
+]

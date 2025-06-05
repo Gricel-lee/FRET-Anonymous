@@ -1,0 +1,1754 @@
+[
+    {
+        "reqid": "R009",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "In auto-takeoff mode, whenever runway incursion occurs, the sensor selection output shall with probability > 0.99 at the next time point satisfy detection of runway incursion.",
+        "comments": "",
+        "fulltext": "in auto_takeoff_mode whenever q_k SensorSelection shall with probability > 0.99 at the next timepoint satisfy incursionDetected",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "in"
+            },
+            "condition": "holding",
+            "probability": "bound",
+            "timing": "next",
+            "response": "satisfaction",
+            "variables": [
+                "auto_takeoff_mode",
+                "q_k",
+                "incursionDetected"
+            ],
+            "scope_mode": "auto_takeoff_mode",
+            "scopeTextRange": [
+                0,
+                19
+            ],
+            "qualifier_word": "whenever",
+            "pre_condition": "(q_k)",
+            "regular_condition": "(q_k)",
+            "conditionTextRange": [
+                21,
+                32
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                34,
+                48
+            ],
+            "probability_bound": [
+                ">",
+                "0.99"
+            ],
+            "probabilityTextRange": [
+                56,
+                78
+            ],
+            "timingTextRange": [
+                80,
+                100
+            ],
+            "post_condition": "(incursionDetected)",
+            "responseTextRange": [
+                102,
+                126
+            ],
+            "diagramVariables": "M = <b><i>auto_takeoff_mode</i></b>, CC = <b><i>(q_k)</i></b>, Response = <b><i>(incursionDetected)</i></b>.",
+            "description": "ENFORCED: in every interval where <b><i>auto_takeoff_mode</i></b> holds.\nTRIGGER: every point in the interval where <b><i>(q_k)</i></b> is true.\nREQUIRES: for every trigger, RES must hold at the next time step.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/in_holding_next_satisfaction.svg",
+            "scope_mode_pt": "auto_takeoff_mode",
+            "scope_mode_ft": "auto_takeoff_mode",
+            "scope_mode_pctl": "auto_takeoff_mode",
+            "bound": ">0.99",
+            "regular_condition_unexp_pt": "q_k",
+            "regular_condition_unexp_ft": "q_k",
+            "regular_condition_unexp_pctl": "q_k",
+            "regular_condition_SMV_pt": "q_k",
+            "regular_condition_SMV_ft": "q_k",
+            "regular_condition_PRISM_pctl": "q_k",
+            "post_condition_unexp_pt": "incursionDetected",
+            "post_condition_unexp_ft": "incursionDetected",
+            "post_condition_unexp_pctl": "incursionDetected",
+            "post_condition_SMV_pt": "incursionDetected",
+            "post_condition_SMV_ft": "incursionDetected",
+            "post_condition_PRISM_pctl": "incursionDetected",
+            "ft": "((LAST V ((! (Fin_auto_takeoff_mode & (! LAST))) | (X ((Lin_auto_takeoff_mode | LAST) V (q_k -> ((Lin_auto_takeoff_mode | LAST) | ((X incursionDetected) & (! (Lin_auto_takeoff_mode | LAST))))))))) & (auto_takeoff_mode -> ((Lin_auto_takeoff_mode | LAST) V (q_k -> ((Lin_auto_takeoff_mode | LAST) | ((X incursionDetected) & (! (Lin_auto_takeoff_mode | LAST))))))))",
+            "pt": "((H (Lin_auto_takeoff_mode -> (Y (((Y q_k) -> (incursionDetected | Fin_auto_takeoff_mode)) S (((Y q_k) -> (incursionDetected | Fin_auto_takeoff_mode)) & Fin_auto_takeoff_mode))))) & (((! Lin_auto_takeoff_mode) S ((! Lin_auto_takeoff_mode) & Fin_auto_takeoff_mode)) -> (((Y q_k) -> (incursionDetected | Fin_auto_takeoff_mode)) S (((Y q_k) -> (incursionDetected | Fin_auto_takeoff_mode)) & Fin_auto_takeoff_mode))))",
+            "pctl": "P>=1[((G ((! (Fin_auto_takeoff_mode & (! LAST))) | (X (Lin_auto_takeoff_mode R (q_k => (P>0.99[(Lin_auto_takeoff_mode | ((X incursionDetected) & (! Lin_auto_takeoff_mode)))])))))) & (auto_takeoff_mode => (Lin_auto_takeoff_mode | (Lin_auto_takeoff_mode R (q_k => (P>0.99[(Lin_auto_takeoff_mode | ((X incursionDetected) & (! Lin_auto_takeoff_mode)))]))))))]",
+            "ptExpanded": "((H (((! auto_takeoff_mode) & (Y auto_takeoff_mode)) -> (Y (((Y q_k) -> (incursionDetected | (auto_takeoff_mode & (Z (! auto_takeoff_mode))))) S (((Y q_k) -> (incursionDetected | (auto_takeoff_mode & (Z (! auto_takeoff_mode))))) & (auto_takeoff_mode & (Z (! auto_takeoff_mode)))))))) & (((! ((! auto_takeoff_mode) & (Y auto_takeoff_mode))) S ((! ((! auto_takeoff_mode) & (Y auto_takeoff_mode))) & (auto_takeoff_mode & (Z (! auto_takeoff_mode))))) -> (((Y q_k) -> (incursionDetected | (auto_takeoff_mode & (Z (! auto_takeoff_mode))))) S (((Y q_k) -> (incursionDetected | (auto_takeoff_mode & (Z (! auto_takeoff_mode))))) & (auto_takeoff_mode & (Z (! auto_takeoff_mode)))))))",
+            "CoCoSpecCode": "(H(((not (auto_takeoff_mode) and YtoPre(auto_takeoff_mode)) => YtoPre(SI((auto_takeoff_mode and ZtoPre(not (auto_takeoff_mode))),(YtoPre(q_k) => (incursionDetected or (auto_takeoff_mode and ZtoPre(not (auto_takeoff_mode))))))))) and (SI((auto_takeoff_mode and ZtoPre(not (auto_takeoff_mode))),not ((not (auto_takeoff_mode) and YtoPre(auto_takeoff_mode)))) => SI((auto_takeoff_mode and ZtoPre(not (auto_takeoff_mode))),(YtoPre(q_k) => (incursionDetected or (auto_takeoff_mode and ZtoPre(not (auto_takeoff_mode))))))))",
+            "ftExpanded": "((LAST V ((! ((((! auto_takeoff_mode) & (! LAST)) & (X auto_takeoff_mode)) & (! LAST))) | (X ((((auto_takeoff_mode & (! LAST)) & (X (! auto_takeoff_mode))) | LAST) V (q_k -> ((((auto_takeoff_mode & (! LAST)) & (X (! auto_takeoff_mode))) | LAST) | ((X incursionDetected) & (! (((auto_takeoff_mode & (! LAST)) & (X (! auto_takeoff_mode))) | LAST))))))))) & (auto_takeoff_mode -> ((((auto_takeoff_mode & (! LAST)) & (X (! auto_takeoff_mode))) | LAST) V (q_k -> ((((auto_takeoff_mode & (! LAST)) & (X (! auto_takeoff_mode))) | LAST) | ((X incursionDetected) & (! (((auto_takeoff_mode & (! LAST)) & (X (! auto_takeoff_mode))) | LAST))))))))",
+            "pctlExpanded": "P>=1[((G ((! (((! auto_takeoff_mode) & (X auto_takeoff_mode)) & (! false))) | (X ((auto_takeoff_mode & (X (! auto_takeoff_mode))) R (q_k => (P>0.99[((auto_takeoff_mode & (X (! auto_takeoff_mode))) | ((X incursionDetected) & (! (auto_takeoff_mode & (X (! auto_takeoff_mode))))))])))))) & (auto_takeoff_mode => ((auto_takeoff_mode & (X (! auto_takeoff_mode))) | ((auto_takeoff_mode & (X (! auto_takeoff_mode))) R (q_k => (P>0.99[((auto_takeoff_mode & (X (! auto_takeoff_mode))) | ((X incursionDetected) & (! (auto_takeoff_mode & (X (! auto_takeoff_mode))))))]))))))]",
+            "ftInfAUExpanded": "((G ((! ((! auto_takeoff_mode) & (X auto_takeoff_mode))) | (X ((auto_takeoff_mode & (X (! auto_takeoff_mode))) V (q_k -> ((auto_takeoff_mode & (X (! auto_takeoff_mode))) | ((X incursionDetected) & (! (auto_takeoff_mode & (X (! auto_takeoff_mode))))))))))) & (auto_takeoff_mode -> ((auto_takeoff_mode & (X (! auto_takeoff_mode))) V (q_k -> ((auto_takeoff_mode & (X (! auto_takeoff_mode))) | ((X incursionDetected) & (! (auto_takeoff_mode & (X (! auto_takeoff_mode))))))))))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0d0-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R010",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "after  auto-land mode, the sensor selection output shall with probability > 0.99 eventually satisfy detection of correct runway exit",
+        "comments": "",
+        "fulltext": "after auto_land_mode SensorSelection shall with probability > 0.99 eventually satisfy detect_correct_exit",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "after",
+                "exclusive": false,
+                "required": false
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "auto_land_mode",
+                "detect_correct_exit"
+            ],
+            "scope_mode": "auto_land_mode",
+            "scopeTextRange": [
+                0,
+                19
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                21,
+                35
+            ],
+            "probability_bound": [
+                ">",
+                "0.99"
+            ],
+            "probabilityTextRange": [
+                43,
+                65
+            ],
+            "timingTextRange": [
+                67,
+                76
+            ],
+            "post_condition": "(detect_correct_exit)",
+            "responseTextRange": [
+                78,
+                104
+            ],
+            "diagramVariables": "M = <b><i>auto_land_mode</i></b>, Response = <b><i>(detect_correct_exit)</i></b>.",
+            "description": "ENFORCED: in the interval (if defined) starting strictly after the first <b><i>auto_land_mode</i></b> interval and spanning to the end of the execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/after_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "auto_land_mode",
+            "scope_mode_ft": "auto_land_mode",
+            "scope_mode_pctl": "auto_land_mode",
+            "bound": ">0.99",
+            "post_condition_unexp_pt": "detect_correct_exit",
+            "post_condition_unexp_ft": "detect_correct_exit",
+            "post_condition_unexp_pctl": "detect_correct_exit",
+            "post_condition_SMV_pt": "detect_correct_exit",
+            "post_condition_SMV_ft": "detect_correct_exit",
+            "post_condition_PRISM_pctl": "detect_correct_exit",
+            "ft": "(((! FLin_auto_land_mode) U (FLin_auto_land_mode & (X ((! LAST) U detect_correct_exit)))) | (LAST V (! FLin_auto_land_mode)))",
+            "pt": "((O FLin_auto_land_mode) -> (! ((! detect_correct_exit) S ((! detect_correct_exit) & FLin_auto_land_mode))))",
+            "pctl": "P>=1[(((! FLin_auto_land_mode) U (FLin_auto_land_mode & (X (P>0.99[(F detect_correct_exit)])))) | (G (! FLin_auto_land_mode)))]",
+            "ptExpanded": "((O (((! auto_land_mode) & (Y auto_land_mode)) & (Y (H (! ((! auto_land_mode) & (Y auto_land_mode))))))) -> (! ((! detect_correct_exit) S ((! detect_correct_exit) & (((! auto_land_mode) & (Y auto_land_mode)) & (Y (H (! ((! auto_land_mode) & (Y auto_land_mode))))))))))",
+            "CoCoSpecCode": "(O(((not (auto_land_mode) and YtoPre(auto_land_mode)) and YtoPre(H(not ((not (auto_land_mode) and YtoPre(auto_land_mode))))))) => not (SI(((not (auto_land_mode) and YtoPre(auto_land_mode)) and YtoPre(H(not ((not (auto_land_mode) and YtoPre(auto_land_mode)))))),not (detect_correct_exit))))",
+            "ftExpanded": "(((! ((auto_land_mode & (! LAST)) & (X (! auto_land_mode)))) U (((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) & (X ((! LAST) U detect_correct_exit)))) | (LAST V (! ((auto_land_mode & (! LAST)) & (X (! auto_land_mode))))))",
+            "pctlExpanded": "P>=1[(((! (auto_land_mode & (X (! auto_land_mode)))) U ((auto_land_mode & (X (! auto_land_mode))) & (X (P>0.99[(F detect_correct_exit)])))) | (G (! (auto_land_mode & (X (! auto_land_mode))))))]",
+            "ftInfAUExpanded": "(((! (auto_land_mode & (X (! auto_land_mode)))) U ((auto_land_mode & (X (! auto_land_mode))) & (X (F detect_correct_exit)))) | (G (! (auto_land_mode & (X (! auto_land_mode))))))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0d1-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R011",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "before auto-takeoff mode, the sensor selection output shall with probability > 0.99 eventually satisfy detection of correct runway entry",
+        "comments": "",
+        "fulltext": "before auto_takeoff_mode SensorSelection shall with probability >0.99 eventually satisfy detect_correct_entry",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "before",
+                "exclusive": false,
+                "required": false
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "eventually",
+            "response": "satisfaction",
+            "variables": [
+                "auto_takeoff_mode",
+                "detect_correct_entry"
+            ],
+            "scope_mode": "auto_takeoff_mode",
+            "scopeTextRange": [
+                0,
+                23
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                25,
+                39
+            ],
+            "probability_bound": [
+                ">",
+                "0.99"
+            ],
+            "probabilityTextRange": [
+                47,
+                68
+            ],
+            "timingTextRange": [
+                70,
+                79
+            ],
+            "post_condition": "(detect_correct_entry)",
+            "responseTextRange": [
+                81,
+                108
+            ],
+            "diagramVariables": "M = <b><i>auto_takeoff_mode</i></b>, Response = <b><i>(detect_correct_entry)</i></b>.",
+            "description": "ENFORCED: in the interval (if defined) from the start of the execution to (and exclusive of) the first point where <b><i>auto_takeoff_mode</i></b> holds. In the interval defined by the entire execution, if <b><i>auto_takeoff_mode</i></b> never holds. If <b><i>auto_takeoff_mode</i></b> holds initially, the requirement is vacuously satisfied.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/before_null_eventually_satisfaction.svg",
+            "scope_mode_pt": "auto_takeoff_mode",
+            "scope_mode_ft": "auto_takeoff_mode",
+            "scope_mode_pctl": "auto_takeoff_mode",
+            "bound": ">0.99",
+            "post_condition_unexp_pt": "detect_correct_entry",
+            "post_condition_unexp_ft": "detect_correct_entry",
+            "post_condition_unexp_pctl": "detect_correct_entry",
+            "post_condition_SMV_pt": "detect_correct_entry",
+            "post_condition_SMV_ft": "detect_correct_entry",
+            "post_condition_PRISM_pctl": "detect_correct_entry",
+            "ft": "(((! (FFin_auto_takeoff_mode | LAST)) U detect_correct_entry) | auto_takeoff_mode)",
+            "pt": "((H ((FFin_auto_takeoff_mode & (Y TRUE)) -> (Y (O detect_correct_entry)))) & ((H (! FFin_auto_takeoff_mode)) -> (O detect_correct_entry)))",
+            "pctl": "P>=1[(FFin_auto_takeoff_mode | (P>0.99[((! FFin_auto_takeoff_mode) U detect_correct_entry)]))]",
+            "ptExpanded": "((H ((((auto_takeoff_mode & (Z (! auto_takeoff_mode))) & (Z (H (! auto_takeoff_mode)))) & (Y TRUE)) -> (Y (O detect_correct_entry)))) & ((H (! ((auto_takeoff_mode & (Z (! auto_takeoff_mode))) & (Z (H (! auto_takeoff_mode)))))) -> (O detect_correct_entry)))",
+            "CoCoSpecCode": "(H(((((auto_takeoff_mode and ZtoPre(not (auto_takeoff_mode))) and ZtoPre(H(not (auto_takeoff_mode)))) and YtoPre(true)) => YtoPre(O(detect_correct_entry)))) and (H(not (((auto_takeoff_mode and ZtoPre(not (auto_takeoff_mode))) and ZtoPre(H(not (auto_takeoff_mode)))))) => O(detect_correct_entry)))",
+            "ftExpanded": "(((! ((((! auto_takeoff_mode) & (! LAST)) & (X auto_takeoff_mode)) | LAST)) U detect_correct_entry) | auto_takeoff_mode)",
+            "pctlExpanded": "P>=1[(((! auto_takeoff_mode) & (X auto_takeoff_mode)) | (P>0.99[((! ((! auto_takeoff_mode) & (X auto_takeoff_mode))) U detect_correct_entry)]))]",
+            "ftInfAUExpanded": "(((! ((! auto_takeoff_mode) & (X auto_takeoff_mode))) U detect_correct_entry) | auto_takeoff_mode)",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0d2-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R012a",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Upon LECDiSAGREE, sensor selection component output shall with probability > 0.9 at next time point (or within 10 milliseconds) satisfy ACCURATE",
+        "comments": "",
+        "fulltext": "upon LEC_disagree SensorSelection shall with probability > 0.9 at the next timepoint satisfy q_hat =q ",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "regular",
+            "probability": "bound",
+            "timing": "next",
+            "response": "satisfaction",
+            "variables": [
+                "LEC_disagree",
+                "q_hat",
+                "q"
+            ],
+            "qualifier_word": "upon",
+            "pre_condition": "(LEC_disagree)",
+            "regular_condition": "(LEC_disagree)",
+            "conditionTextRange": [
+                0,
+                16
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                18,
+                32
+            ],
+            "probability_bound": [
+                ">",
+                "0.9"
+            ],
+            "probabilityTextRange": [
+                40,
+                61
+            ],
+            "timingTextRange": [
+                63,
+                83
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                85,
+                100
+            ],
+            "diagramVariables": "TC = <b><i>(LEC_disagree)</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval if <b><i>(LEC_disagree)</i></b> is true and any point in the interval where <b><i>(LEC_disagree)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must hold at the next time step.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_regular_next_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">0.9",
+            "regular_condition_unexp_pt": "LEC_disagree",
+            "regular_condition_unexp_ft": "LEC_disagree",
+            "regular_condition_unexp_pctl": "LEC_disagree",
+            "regular_condition_SMV_pt": "LEC_disagree",
+            "regular_condition_SMV_ft": "LEC_disagree",
+            "regular_condition_PRISM_pctl": "LEC_disagree",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "((LAST V (((! LEC_disagree) & ((! LAST) & (X LEC_disagree))) -> (X (LAST | (X (q_hat = q)))))) & (LEC_disagree -> (LAST | (X (q_hat = q)))))",
+            "pt": "(H ((Y (LEC_disagree & (Z (! LEC_disagree)))) -> ((q_hat = q) | (Z FALSE))))",
+            "pctl": "P>=1[((G (((! LEC_disagree) & (X LEC_disagree)) => (X (P>0.9[(LAST | (X (q_hat = q)))])))) & (LEC_disagree => (P>0.9[(LAST | (X (q_hat = q)))])))]",
+            "ptExpanded": "(H ((Y (LEC_disagree & (Z (! LEC_disagree)))) -> ((q_hat = q) | (Z FALSE))))",
+            "CoCoSpecCode": "H((YtoPre((LEC_disagree and ZtoPre(not (LEC_disagree)))) => ((q_hat = q) or ZtoPre(false))))",
+            "ftExpanded": "((LAST V (((! LEC_disagree) & ((! LAST) & (X LEC_disagree))) -> (X (LAST | (X (q_hat = q)))))) & (LEC_disagree -> (LAST | (X (q_hat = q)))))",
+            "pctlExpanded": "P>=1[((G (((! LEC_disagree) & (X LEC_disagree)) => (X (P>0.9[(false | (X (q_hat = q)))])))) & (LEC_disagree => (P>0.9[(false | (X (q_hat = q)))])))]",
+            "ftInfAUExpanded": "((G (((! LEC_disagree) & (X LEC_disagree)) -> (X (X (q_hat = q))))) & (LEC_disagree -> (X (q_hat = q))))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0d3-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R012b(alternative to R012a)",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Upon LECDiSAGREE, sensor selection component output shall with probability > 0.9 at next time point (or within 10 milliseconds) satisfy ACCURATE",
+        "comments": "",
+        "fulltext": "upon LEC_disagree SensorSelection shall with probability > 0.9 within 10 milliseconds satisfy q_hat =q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "regular",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "LEC_disagree",
+                "q_hat",
+                "q"
+            ],
+            "qualifier_word": "upon",
+            "pre_condition": "(LEC_disagree)",
+            "regular_condition": "(LEC_disagree)",
+            "conditionTextRange": [
+                0,
+                16
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                18,
+                32
+            ],
+            "probability_bound": [
+                ">",
+                "0.9"
+            ],
+            "probabilityTextRange": [
+                40,
+                61
+            ],
+            "duration": "10",
+            "timingTextRange": [
+                63,
+                84
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                86,
+                101
+            ],
+            "diagramVariables": "TC = <b><i>(LEC_disagree)</i></b>,  n = <b><i>10</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval if <b><i>(LEC_disagree)</i></b> is true and any point in the interval where <b><i>(LEC_disagree)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>10</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>10</i></b>). If the interval ends sooner than trigger+<b><i>10</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_regular_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">0.9",
+            "regular_condition_unexp_pt": "LEC_disagree",
+            "regular_condition_unexp_ft": "LEC_disagree",
+            "regular_condition_unexp_pctl": "LEC_disagree",
+            "regular_condition_SMV_pt": "LEC_disagree",
+            "regular_condition_SMV_ft": "LEC_disagree",
+            "regular_condition_PRISM_pctl": "LEC_disagree",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "((LAST V (((! LEC_disagree) & ((! LAST) & (X LEC_disagree))) -> (X ((F[<=10] (q_hat = q)) | (F[<10] LAST))))) & (LEC_disagree -> ((F[<=10] (q_hat = q)) | (F[<10] LAST))))",
+            "pt": "(H ((O[=10] ((LEC_disagree & (Z (! LEC_disagree))) & (! (q_hat = q)))) -> (O[<10] ((Z FALSE) | (q_hat = q)))))",
+            "pctl": "P>=1[((G (((! LEC_disagree) & (X LEC_disagree)) => (X (P>0.9[(F<=10 (q_hat = q))])))) & (LEC_disagree => (P>0.9[(F[<=10] (q_hat = q))])))]",
+            "ptExpanded": "(H ((O[10,10] ((LEC_disagree & (Z (! LEC_disagree))) & (! (q_hat = q)))) -> (O[0,9] ((Z FALSE) | (q_hat = q)))))",
+            "CoCoSpecCode": "H((OT(10, 10, ((LEC_disagree and ZtoPre(not (LEC_disagree))) and not ((q_hat = q)))) => OT(9, 0, (ZtoPre(false) or (q_hat = q)))))",
+            "ftExpanded": "((LAST V (((! LEC_disagree) & ((! LAST) & (X LEC_disagree))) -> (X ((F[0,10] (q_hat = q)) | (F[0,9] LAST))))) & (LEC_disagree -> ((F[0,10] (q_hat = q)) | (F[0,9] LAST))))",
+            "pctlExpanded": "P>=1[((G (((! LEC_disagree) & (X LEC_disagree)) => (X (P>0.9[(F<=10 (q_hat = q))])))) & (LEC_disagree => (P>0.9[(F[<=10] (q_hat = q))])))]",
+            "ftInfAUExpanded": "((G (((! LEC_disagree) & (X LEC_disagree)) -> (X (F[0,10] (q_hat = q))))) & (LEC_disagree -> (F[0,10] (q_hat = q))))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0d4-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R013",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Upon out-of-distribution_event OODDetector shall with probability ≥ 0.9 after 5 time units satisfy InputDataIsOOD ( no need to specify a mode) fK output of the OOD Detection",
+        "comments": "",
+        "fulltext": "upon ood_event OODDetector shall with probability >= 0.99 after 5 ticks satisfy f_k",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "regular",
+            "probability": "bound",
+            "timing": "after",
+            "response": "satisfaction",
+            "variables": [
+                "ood_event",
+                "f_k"
+            ],
+            "qualifier_word": "upon",
+            "pre_condition": "(ood_event)",
+            "regular_condition": "(ood_event)",
+            "conditionTextRange": [
+                0,
+                13
+            ],
+            "component_name": "OODDetector",
+            "componentTextRange": [
+                15,
+                25
+            ],
+            "probability_bound": [
+                ">=",
+                "0.99"
+            ],
+            "probabilityTextRange": [
+                33,
+                56
+            ],
+            "duration": "5",
+            "timingTextRange": [
+                58,
+                70
+            ],
+            "post_condition": "(f_k)",
+            "responseTextRange": [
+                72,
+                82
+            ],
+            "diagramVariables": "TC = <b><i>(ood_event)</i></b>,  n = <b><i>5</i></b>, Response = <b><i>(f_k)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval if <b><i>(ood_event)</i></b> is true and any point in the interval where <b><i>(ood_event)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must be false at all time points with distance <=<b><i>5</i></b> from the trigger (i.e., trigger, trigger+1, ..., and trigger+<b><i>5</i></b>). Moreover, RES must hold at the point that is at distance <b><i>5</i></b>+1 from the trigger, that is, trigger+<b><i>5</i></b>+1, except if the end of the interval occurs earlier.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_regular_after_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">=0.99",
+            "regular_condition_unexp_pt": "ood_event",
+            "regular_condition_unexp_ft": "ood_event",
+            "regular_condition_unexp_pctl": "ood_event",
+            "regular_condition_SMV_pt": "ood_event",
+            "regular_condition_SMV_ft": "ood_event",
+            "regular_condition_PRISM_pctl": "ood_event",
+            "post_condition_unexp_pt": "f_k",
+            "post_condition_unexp_ft": "f_k",
+            "post_condition_unexp_pctl": "f_k",
+            "post_condition_SMV_pt": "f_k",
+            "post_condition_SMV_ft": "f_k",
+            "post_condition_PRISM_pctl": "f_k",
+            "ft": "((LAST V (((! ood_event) & ((! LAST) & (X ood_event))) -> (X (((G[<=5] (! f_k)) | (LAST V (! f_k))) & ((F[<=5+1] f_k) | (F[<5+1] LAST)))))) & (ood_event -> (((G[<=5] (! f_k)) | (LAST V (! f_k))) & ((F[<=5+1] f_k) | (F[<5+1] LAST)))))",
+            "pt": "((H ((O[<=5] (ood_event & (Z (! ood_event)))) -> ((H (! ood_event)) | (! f_k)))) & (H ((O[=5+1] ((ood_event & (Z (! ood_event))) & (! f_k))) -> (O[<5+1] ((Z FALSE) | f_k)))))",
+            "pctl": "P>=1[((G (((! ood_event) & (X ood_event)) => (X (P>=0.99[((G<=5 (! f_k)) & (F<=(5+1) f_k))])))) & (ood_event => (P>=0.99[((G[<=5] (! f_k)) & (F[<=5+1] f_k))])))]",
+            "ptExpanded": "((H ((O[0,5] (ood_event & (Z (! ood_event)))) -> ((H (! ood_event)) | (! f_k)))) & (H ((O[6,6] ((ood_event & (Z (! ood_event))) & (! f_k))) -> (O[0,5] ((Z FALSE) | f_k)))))",
+            "CoCoSpecCode": "(H((OT(5, 0, (ood_event and ZtoPre(not (ood_event)))) => (H(not (ood_event)) or not (f_k)))) and H((OT(6, 6, ((ood_event and ZtoPre(not (ood_event))) and not (f_k))) => OT(5, 0, (ZtoPre(false) or f_k)))))",
+            "ftExpanded": "((LAST V (((! ood_event) & ((! LAST) & (X ood_event))) -> (X (((G[0,5] (! f_k)) | (LAST V (! f_k))) & ((F[0,6] f_k) | (F[0,5] LAST)))))) & (ood_event -> (((G[0,5] (! f_k)) | (LAST V (! f_k))) & ((F[0,6] f_k) | (F[0,5] LAST)))))",
+            "pctlExpanded": "P>=1[((G (((! ood_event) & (X ood_event)) => (X (P>=0.99[((G<=5 (! f_k)) & (F<=(5+1) f_k))])))) & (ood_event => (P>=0.99[((G[<=5] (! f_k)) & (F[<=5+1] f_k))])))]",
+            "ftInfAUExpanded": "((G (((! ood_event) & (X ood_event)) -> (X (((G[0,5] (! f_k)) | (G (! f_k))) & (F[0,6] f_k))))) & (ood_event -> (((G[0,5] (! f_k)) | (G (! f_k))) & (F[0,6] f_k))))",
+            "component": "OODDetector"
+        },
+        "status": "",
+        "_id": "14a6e0d5-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R014",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "In auto-land mode, Upon out-of-distribution_event OODDetector shall with probability ≥ 0.99 after 5 time units satisfy InputDataIsOOD (fK output of the OOD Detection)",
+        "comments": "",
+        "fulltext": "in auto_land_mode upon ood_event OODDetector shall with probability >= 0.99 after 5 ticks satisfy f_k",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "in"
+            },
+            "condition": "regular",
+            "probability": "bound",
+            "timing": "after",
+            "response": "satisfaction",
+            "variables": [
+                "auto_land_mode",
+                "ood_event",
+                "f_k"
+            ],
+            "scope_mode": "auto_land_mode",
+            "scopeTextRange": [
+                0,
+                16
+            ],
+            "qualifier_word": "upon",
+            "pre_condition": "(ood_event)",
+            "regular_condition": "(ood_event)",
+            "conditionTextRange": [
+                18,
+                31
+            ],
+            "component_name": "OODDetector",
+            "componentTextRange": [
+                33,
+                43
+            ],
+            "probability_bound": [
+                ">=",
+                "0.99"
+            ],
+            "probabilityTextRange": [
+                51,
+                74
+            ],
+            "duration": "5",
+            "timingTextRange": [
+                76,
+                88
+            ],
+            "post_condition": "(f_k)",
+            "responseTextRange": [
+                90,
+                100
+            ],
+            "diagramVariables": "M = <b><i>auto_land_mode</i></b>, TC = <b><i>(ood_event)</i></b>,  n = <b><i>5</i></b>, Response = <b><i>(f_k)</i></b>.",
+            "description": "ENFORCED: in every interval where <b><i>auto_land_mode</i></b> holds.\nTRIGGER: first point in the interval if <b><i>(ood_event)</i></b> is true and any point in the interval where <b><i>(ood_event)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must be false at all time points with distance <=<b><i>5</i></b> from the trigger (i.e., trigger, trigger+1, ..., and trigger+<b><i>5</i></b>). Moreover, RES must hold at the point that is at distance <b><i>5</i></b>+1 from the trigger, that is, trigger+<b><i>5</i></b>+1, except if the end of the interval occurs earlier.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/in_regular_after_satisfaction.svg",
+            "scope_mode_pt": "auto_land_mode",
+            "scope_mode_ft": "auto_land_mode",
+            "scope_mode_pctl": "auto_land_mode",
+            "bound": ">=0.99",
+            "regular_condition_unexp_pt": "ood_event",
+            "regular_condition_unexp_ft": "ood_event",
+            "regular_condition_unexp_pctl": "ood_event",
+            "regular_condition_SMV_pt": "ood_event",
+            "regular_condition_SMV_ft": "ood_event",
+            "regular_condition_PRISM_pctl": "ood_event",
+            "post_condition_unexp_pt": "f_k",
+            "post_condition_unexp_ft": "f_k",
+            "post_condition_unexp_pctl": "f_k",
+            "post_condition_SMV_pt": "f_k",
+            "post_condition_SMV_ft": "f_k",
+            "post_condition_PRISM_pctl": "f_k",
+            "ft": "((LAST V ((! (Fin_auto_land_mode & (! LAST))) | (X (((Lin_auto_land_mode | LAST) V (((! ood_event) & ((! LAST) & ((X ood_event) & (! (Lin_auto_land_mode | LAST))))) -> ((X (((G[<=5] (! f_k)) | ((Lin_auto_land_mode | LAST) V (! f_k))) & ((F[<=5+1] f_k) | (F[<5+1] (Lin_auto_land_mode | LAST))))) & (! (Lin_auto_land_mode | LAST))))) & (ood_event -> (((G[<=5] (! f_k)) | ((Lin_auto_land_mode | LAST) V (! f_k))) & ((F[<=5+1] f_k) | (F[<5+1] (Lin_auto_land_mode | LAST))))))))) & (auto_land_mode -> (((Lin_auto_land_mode | LAST) V (((! ood_event) & ((! LAST) & ((X ood_event) & (! (Lin_auto_land_mode | LAST))))) -> ((X (((G[<=5] (! f_k)) | ((Lin_auto_land_mode | LAST) V (! f_k))) & ((F[<=5+1] f_k) | (F[<5+1] (Lin_auto_land_mode | LAST))))) & (! (Lin_auto_land_mode | LAST))))) & (ood_event -> (((G[<=5] (! f_k)) | ((Lin_auto_land_mode | LAST) V (! f_k))) & ((F[<=5+1] f_k) | (F[<5+1] (Lin_auto_land_mode | LAST))))))))",
+            "pt": "((H (Lin_auto_land_mode -> (Y ((((O[<=5] (ood_event & ((Y (! ood_event)) | Fin_auto_land_mode))) -> (((! ood_event) S ((! ood_event) & Fin_auto_land_mode)) | (! f_k))) S (((O[<=5] (ood_event & ((Y (! ood_event)) | Fin_auto_land_mode))) -> (((! ood_event) S ((! ood_event) & Fin_auto_land_mode)) | (! f_k))) & Fin_auto_land_mode)) & (((O[=5+1] ((ood_event & ((Y (! ood_event)) | Fin_auto_land_mode)) & (! f_k))) -> (O[<5+1] (Fin_auto_land_mode | f_k))) S (((O[=5+1] ((ood_event & ((Y (! ood_event)) | Fin_auto_land_mode)) & (! f_k))) -> (O[<5+1] (Fin_auto_land_mode | f_k))) & Fin_auto_land_mode)))))) & (((! Lin_auto_land_mode) S ((! Lin_auto_land_mode) & Fin_auto_land_mode)) -> ((((O[<=5] (ood_event & ((Y (! ood_event)) | Fin_auto_land_mode))) -> (((! ood_event) S ((! ood_event) & Fin_auto_land_mode)) | (! f_k))) S (((O[<=5] (ood_event & ((Y (! ood_event)) | Fin_auto_land_mode))) -> (((! ood_event) S ((! ood_event) & Fin_auto_land_mode)) | (! f_k))) & Fin_auto_land_mode)) & (((O[=5+1] ((ood_event & ((Y (! ood_event)) | Fin_auto_land_mode)) & (! f_k))) -> (O[<5+1] (Fin_auto_land_mode | f_k))) S (((O[=5+1] ((ood_event & ((Y (! ood_event)) | Fin_auto_land_mode)) & (! f_k))) -> (O[<5+1] (Fin_auto_land_mode | f_k))) & Fin_auto_land_mode)))))",
+            "pctl": "P>=1[((G ((! (Fin_auto_land_mode & (! LAST))) | (X ((Lin_auto_land_mode R (((! ood_event) & ((X ood_event) & (! Lin_auto_land_mode))) => ((X (P>=0.99[((G<=5 (! f_k)) & (F<=(5+1) f_k))])) & (! Lin_auto_land_mode)))) & (ood_event => (P>=0.99[((G[<=5] (! f_k)) & (F[<=5+1] f_k))])))))) & (auto_land_mode => (Lin_auto_land_mode | ((Lin_auto_land_mode R (((! ood_event) & ((X ood_event) & (! Lin_auto_land_mode))) => ((X (P>=0.99[((G[<=5] (! f_k)) & (F[<=5+1] f_k))])) & (! Lin_auto_land_mode)))) & (ood_event => (P>=0.99[((G[<=5] (! f_k)) & (F[<=5+1] f_k))]))))))]",
+            "ptExpanded": "((H (((! auto_land_mode) & (Y auto_land_mode)) -> (Y ((((O[0,5] (ood_event & ((Y (! ood_event)) | (auto_land_mode & (Z (! auto_land_mode)))))) -> (((! ood_event) S ((! ood_event) & (auto_land_mode & (Z (! auto_land_mode))))) | (! f_k))) S (((O[0,5] (ood_event & ((Y (! ood_event)) | (auto_land_mode & (Z (! auto_land_mode)))))) -> (((! ood_event) S ((! ood_event) & (auto_land_mode & (Z (! auto_land_mode))))) | (! f_k))) & (auto_land_mode & (Z (! auto_land_mode))))) & (((O[6,6] ((ood_event & ((Y (! ood_event)) | (auto_land_mode & (Z (! auto_land_mode))))) & (! f_k))) -> (O[0,5] ((auto_land_mode & (Z (! auto_land_mode))) | f_k))) S (((O[6,6] ((ood_event & ((Y (! ood_event)) | (auto_land_mode & (Z (! auto_land_mode))))) & (! f_k))) -> (O[0,5] ((auto_land_mode & (Z (! auto_land_mode))) | f_k))) & (auto_land_mode & (Z (! auto_land_mode))))))))) & (((! ((! auto_land_mode) & (Y auto_land_mode))) S ((! ((! auto_land_mode) & (Y auto_land_mode))) & (auto_land_mode & (Z (! auto_land_mode))))) -> ((((O[0,5] (ood_event & ((Y (! ood_event)) | (auto_land_mode & (Z (! auto_land_mode)))))) -> (((! ood_event) S ((! ood_event) & (auto_land_mode & (Z (! auto_land_mode))))) | (! f_k))) S (((O[0,5] (ood_event & ((Y (! ood_event)) | (auto_land_mode & (Z (! auto_land_mode)))))) -> (((! ood_event) S ((! ood_event) & (auto_land_mode & (Z (! auto_land_mode))))) | (! f_k))) & (auto_land_mode & (Z (! auto_land_mode))))) & (((O[6,6] ((ood_event & ((Y (! ood_event)) | (auto_land_mode & (Z (! auto_land_mode))))) & (! f_k))) -> (O[0,5] ((auto_land_mode & (Z (! auto_land_mode))) | f_k))) S (((O[6,6] ((ood_event & ((Y (! ood_event)) | (auto_land_mode & (Z (! auto_land_mode))))) & (! f_k))) -> (O[0,5] ((auto_land_mode & (Z (! auto_land_mode))) | f_k))) & (auto_land_mode & (Z (! auto_land_mode))))))))",
+            "CoCoSpecCode": "(H(((not (auto_land_mode) and YtoPre(auto_land_mode)) => YtoPre((SI((auto_land_mode and ZtoPre(not (auto_land_mode))),(OT(5, 0, (ood_event and (YtoPre(not (ood_event)) or (auto_land_mode and ZtoPre(not (auto_land_mode)))))) => (SI((auto_land_mode and ZtoPre(not (auto_land_mode))),not (ood_event)) or not (f_k)))) and SI((auto_land_mode and ZtoPre(not (auto_land_mode))),(OT(6, 6, ((ood_event and (YtoPre(not (ood_event)) or (auto_land_mode and ZtoPre(not (auto_land_mode))))) and not (f_k))) => OT(5, 0, ((auto_land_mode and ZtoPre(not (auto_land_mode))) or f_k)))))))) and (SI((auto_land_mode and ZtoPre(not (auto_land_mode))),not ((not (auto_land_mode) and YtoPre(auto_land_mode)))) => (SI((auto_land_mode and ZtoPre(not (auto_land_mode))),(OT(5, 0, (ood_event and (YtoPre(not (ood_event)) or (auto_land_mode and ZtoPre(not (auto_land_mode)))))) => (SI((auto_land_mode and ZtoPre(not (auto_land_mode))),not (ood_event)) or not (f_k)))) and SI((auto_land_mode and ZtoPre(not (auto_land_mode))),(OT(6, 6, ((ood_event and (YtoPre(not (ood_event)) or (auto_land_mode and ZtoPre(not (auto_land_mode))))) and not (f_k))) => OT(5, 0, ((auto_land_mode and ZtoPre(not (auto_land_mode))) or f_k)))))))",
+            "ftExpanded": "((LAST V ((! ((((! auto_land_mode) & (! LAST)) & (X auto_land_mode)) & (! LAST))) | (X (((((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST) V (((! ood_event) & ((! LAST) & ((X ood_event) & (! (((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST))))) -> ((X (((G[0,5] (! f_k)) | ((((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST) V (! f_k))) & ((F[0,6] f_k) | (F[0,5] (((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST))))) & (! (((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST))))) & (ood_event -> (((G[0,5] (! f_k)) | ((((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST) V (! f_k))) & ((F[0,6] f_k) | (F[0,5] (((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST))))))))) & (auto_land_mode -> (((((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST) V (((! ood_event) & ((! LAST) & ((X ood_event) & (! (((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST))))) -> ((X (((G[0,5] (! f_k)) | ((((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST) V (! f_k))) & ((F[0,6] f_k) | (F[0,5] (((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST))))) & (! (((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST))))) & (ood_event -> (((G[0,5] (! f_k)) | ((((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST) V (! f_k))) & ((F[0,6] f_k) | (F[0,5] (((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST))))))))",
+            "pctlExpanded": "P>=1[((G ((! (((! auto_land_mode) & (X auto_land_mode)) & (! false))) | (X (((auto_land_mode & (X (! auto_land_mode))) R (((! ood_event) & ((X ood_event) & (! (auto_land_mode & (X (! auto_land_mode)))))) => ((X (P>=0.99[((G<=5 (! f_k)) & (F<=(5+1) f_k))])) & (! (auto_land_mode & (X (! auto_land_mode))))))) & (ood_event => (P>=0.99[((G[<=5] (! f_k)) & (F[<=5+1] f_k))])))))) & (auto_land_mode => ((auto_land_mode & (X (! auto_land_mode))) | (((auto_land_mode & (X (! auto_land_mode))) R (((! ood_event) & ((X ood_event) & (! (auto_land_mode & (X (! auto_land_mode)))))) => ((X (P>=0.99[((G[<=5] (! f_k)) & (F[<=5+1] f_k))])) & (! (auto_land_mode & (X (! auto_land_mode))))))) & (ood_event => (P>=0.99[((G[<=5] (! f_k)) & (F[<=5+1] f_k))]))))))]",
+            "ftInfAUExpanded": "((G ((! ((! auto_land_mode) & (X auto_land_mode))) | (X (((auto_land_mode & (X (! auto_land_mode))) V (((! ood_event) & ((X ood_event) & (! (auto_land_mode & (X (! auto_land_mode)))))) -> ((X (((G[0,5] (! f_k)) | ((auto_land_mode & (X (! auto_land_mode))) V (! f_k))) & ((F[0,6] f_k) | (F[0,5] (auto_land_mode & (X (! auto_land_mode))))))) & (! (auto_land_mode & (X (! auto_land_mode))))))) & (ood_event -> (((G[0,5] (! f_k)) | ((auto_land_mode & (X (! auto_land_mode))) V (! f_k))) & ((F[0,6] f_k) | (F[0,5] (auto_land_mode & (X (! auto_land_mode))))))))))) & (auto_land_mode -> (((auto_land_mode & (X (! auto_land_mode))) V (((! ood_event) & ((X ood_event) & (! (auto_land_mode & (X (! auto_land_mode)))))) -> ((X (((G[0,5] (! f_k)) | ((auto_land_mode & (X (! auto_land_mode))) V (! f_k))) & ((F[0,6] f_k) | (F[0,5] (auto_land_mode & (X (! auto_land_mode))))))) & (! (auto_land_mode & (X (! auto_land_mode))))))) & (ood_event -> (((G[0,5] (! f_k)) | ((auto_land_mode & (X (! auto_land_mode))) V (! f_k))) & ((F[0,6] f_k) | (F[0,5] (auto_land_mode & (X (! auto_land_mode))))))))))",
+            "component": "OODDetector"
+        },
+        "status": "",
+        "_id": "14a6e0d6-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R001a",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "sensor_selection component shall always satisfy ACCURATE (agreement between q hat and q for this real)",
+        "comments": "",
+        "fulltext": "SensorSelection shall always satisfy q_hat = q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "null",
+            "probability": "null",
+            "timing": "always",
+            "response": "satisfaction",
+            "variables": [
+                "q_hat",
+                "q"
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                0,
+                14
+            ],
+            "timingTextRange": [
+                22,
+                27
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                29,
+                45
+            ],
+            "diagramVariables": "Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at all time points between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_null_always_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "(LAST V (q_hat = q))",
+            "pt": "(H (q_hat = q))",
+            "pctl": "(P>=1[(G (q_hat = q))])",
+            "ptExpanded": "(H (q_hat = q))",
+            "CoCoSpecCode": "H((q_hat = q))",
+            "ftExpanded": "(LAST V (q_hat = q))",
+            "pctlExpanded": "(P>=1[(G (q_hat = q))])",
+            "ftInfAUExpanded": "(G (q_hat = q))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0d7-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R015",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Upon inaccurate, the Runway Detector with probability greater than 90% remain inaccurate for 10 time units.",
+        "comments": "",
+        "fulltext": "upon q_hat - q > epsilon & q - q_hat < epsilon RunwayDetector shall with probability > 0.9  for 10 ticks satisfy q_hat - q > epsilon & q - q_hat < epsilon",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "regular",
+            "probability": "bound",
+            "timing": "for",
+            "response": "satisfaction",
+            "variables": [
+                "q_hat",
+                "q",
+                "epsilon"
+            ],
+            "qualifier_word": "upon",
+            "pre_condition": "(q_hat - q > epsilon & q - q_hat < epsilon)",
+            "regular_condition": "(q_hat - q > epsilon & q - q_hat < epsilon)",
+            "conditionTextRange": [
+                0,
+                45
+            ],
+            "component_name": "RunwayDetector",
+            "componentTextRange": [
+                47,
+                60
+            ],
+            "probability_bound": [
+                ">",
+                "0.9"
+            ],
+            "probabilityTextRange": [
+                68,
+                89
+            ],
+            "duration": "10",
+            "timingTextRange": [
+                92,
+                103
+            ],
+            "post_condition": "(q_hat - q > epsilon & q - q_hat < epsilon)",
+            "responseTextRange": [
+                105,
+                153
+            ],
+            "diagramVariables": "TC = <b><i>(q_hat - q > epsilon & q - q_hat < epsilon)</i></b>,  n = <b><i>10</i></b>, Response = <b><i>(q_hat - q > epsilon & q - q_hat < epsilon)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval if <b><i>(q_hat - q > epsilon & q - q_hat < epsilon)</i></b> is true and any point in the interval where <b><i>(q_hat - q > epsilon & q - q_hat < epsilon)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must hold at the trigger and remain true for <b><i>10</i></b> time points past the trigger (i.e., trigger, trigger+1, ..., and trigger+<b><i>10</i></b>), or to the end of the interval if the interval ends sooner than trigger+<b><i>10</i></b>.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_regular_for_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">0.9",
+            "regular_condition_unexp_pt": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "regular_condition_unexp_ft": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "regular_condition_unexp_pctl": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "regular_condition_SMV_pt": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "regular_condition_SMV_ft": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "regular_condition_PRISM_pctl": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "post_condition_unexp_pt": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "post_condition_unexp_ft": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "post_condition_unexp_pctl": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "post_condition_SMV_pt": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "post_condition_SMV_ft": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "post_condition_PRISM_pctl": "(((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))",
+            "ft": "((LAST V (((! (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))) & ((! LAST) & (X (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))))) -> (X ((G[<=10] (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))) | (LAST V (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))))))) & ((((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)) -> ((G[<=10] (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))) | (LAST V (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))))))",
+            "pt": "(H ((O[<=10] ((((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)) & (Z (! (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))))) -> ((H (! (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))) | (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))))",
+            "pctl": "P>=1[((G (((! (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))) & (X (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))) => (X (P>0.9[(G<=10 (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))])))) & ((((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)) => (P>0.9[(G[<=10] (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))])))]",
+            "ptExpanded": "(H ((O[0,10] ((((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)) & (Z (! (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))))) -> ((H (! (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))) | (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))))",
+            "CoCoSpecCode": "H((OT(10, 0, ((((q_hat - q) > epsilon) and ((q - q_hat) < epsilon)) and ZtoPre(not ((((q_hat - q) > epsilon) and ((q - q_hat) < epsilon)))))) => (H(not ((((q_hat - q) > epsilon) and ((q - q_hat) < epsilon)))) or (((q_hat - q) > epsilon) and ((q - q_hat) < epsilon)))))",
+            "ftExpanded": "((LAST V (((! (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))) & ((! LAST) & (X (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))))) -> (X ((G[0,10] (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))) | (LAST V (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))))))) & ((((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)) -> ((G[0,10] (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))) | (LAST V (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))))))",
+            "pctlExpanded": "P>=1[((G (((! (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))) & (X (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))) => (X (P>0.9[(G<=10 (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))])))) & ((((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)) => (P>0.9[(G[<=10] (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))])))]",
+            "ftInfAUExpanded": "((G (((! (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))) & (X (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)))) -> (X ((G[0,10] (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))) | (G (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))))))) & ((((q_hat - q) > epsilon) & ((q - q_hat) < epsilon)) -> ((G[0,10] (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))) | (G (((q_hat - q) > epsilon) & ((q - q_hat) < epsilon))))))",
+            "component": "RunwayDetector"
+        },
+        "status": "",
+        "_id": "14a6e0d8-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R016",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Upon a runway incursion, RunwayIntrusionDetector, with probability greater than 99.99%, detects the incursion before an unsafe separation distance is reached.",
+        "comments": "",
+        "fulltext": "upon q_k RunwayIntrusionDetector shall with probability > 0.9999  before unsafe_sep_distance satisfy incursionDetected",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "regular",
+            "probability": "bound",
+            "timing": "before",
+            "response": "satisfaction",
+            "variables": [
+                "q_k",
+                "unsafe_sep_distance",
+                "incursionDetected"
+            ],
+            "qualifier_word": "upon",
+            "pre_condition": "(q_k)",
+            "regular_condition": "(q_k)",
+            "conditionTextRange": [
+                0,
+                7
+            ],
+            "component_name": "RunwayIntrusionDetector",
+            "componentTextRange": [
+                9,
+                31
+            ],
+            "probability_bound": [
+                ">",
+                "0.9999"
+            ],
+            "probabilityTextRange": [
+                39,
+                63
+            ],
+            "stop_condition": "(unsafe_sep_distance)",
+            "timingTextRange": [
+                66,
+                91
+            ],
+            "post_condition": "(incursionDetected)",
+            "responseTextRange": [
+                93,
+                117
+            ],
+            "diagramVariables": "TC = <b><i>(q_k)</i></b>, SC = <b><i>(unsafe_sep_distance)</i></b>, Response = <b><i>(incursionDetected)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval if <b><i>(q_k)</i></b> is true and any point in the interval where <b><i>(q_k)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must hold at least once strictly before the state where the stop condition holds. If the stop condition never occurs in the interval, RES does not need to hold. If the stop condition holds at the trigger, the requirement is not satisfied.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_regular_before_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">0.9999",
+            "regular_condition_unexp_pt": "q_k",
+            "regular_condition_unexp_ft": "q_k",
+            "regular_condition_unexp_pctl": "q_k",
+            "regular_condition_SMV_pt": "q_k",
+            "regular_condition_SMV_ft": "q_k",
+            "regular_condition_PRISM_pctl": "q_k",
+            "post_condition_unexp_pt": "incursionDetected",
+            "post_condition_unexp_ft": "incursionDetected",
+            "post_condition_unexp_pctl": "incursionDetected",
+            "post_condition_SMV_pt": "incursionDetected",
+            "post_condition_SMV_ft": "incursionDetected",
+            "post_condition_PRISM_pctl": "incursionDetected",
+            "stop_condition_unexp_pt": "unsafe_sep_distance",
+            "stop_condition_unexp_ft": "unsafe_sep_distance",
+            "stop_condition_PRISM_pctl": "unsafe_sep_distance",
+            "stop_condition_SMV_pt": "unsafe_sep_distance",
+            "stop_condition_SMV_ft": "unsafe_sep_distance",
+            "ft": "((LAST V (((! q_k) & ((! LAST) & (X q_k))) -> (X ((incursionDetected | LAST) V (! unsafe_sep_distance))))) & (q_k -> ((incursionDetected | LAST) V (! unsafe_sep_distance))))",
+            "pt": "(H (unsafe_sep_distance -> ((H (! q_k)) | (((Y TRUE) & (! (q_k & (Z (! q_k))))) & (Y (! ((! incursionDetected) S ((! incursionDetected) & (q_k & (Z (! q_k)))))))))))",
+            "pctl": "P>=1[((G (((! q_k) & (X q_k)) => (X (P>0.9999[((incursionDetected | LAST) R (! undefined))])))) & (q_k => (P>0.9999[((incursionDetected | LAST) R (! undefined))])))]",
+            "ptExpanded": "(H (unsafe_sep_distance -> ((H (! q_k)) | (((Y TRUE) & (! (q_k & (Z (! q_k))))) & (Y (! ((! incursionDetected) S ((! incursionDetected) & (q_k & (Z (! q_k)))))))))))",
+            "CoCoSpecCode": "H((unsafe_sep_distance => (H(not (q_k)) or ((YtoPre(true) and not ((q_k and ZtoPre(not (q_k))))) and YtoPre(not (SI((q_k and ZtoPre(not (q_k))),not (incursionDetected))))))))",
+            "ftExpanded": "((LAST V (((! q_k) & ((! LAST) & (X q_k))) -> (X ((incursionDetected | LAST) V (! unsafe_sep_distance))))) & (q_k -> ((incursionDetected | LAST) V (! unsafe_sep_distance))))",
+            "pctlExpanded": "P>=1[((G (((! q_k) & (X q_k)) => (X (P>0.9999[((incursionDetected | false) R (! unsafe_sep_distance))])))) & (q_k => (P>0.9999[((incursionDetected | false) R (! unsafe_sep_distance))])))]",
+            "ftInfAUExpanded": "((G (((! q_k) & (X q_k)) -> (X (incursionDetected V (! unsafe_sep_distance))))) & (q_k -> (incursionDetected V (! unsafe_sep_distance))))",
+            "component": "RunwayIntrusionDetector"
+        },
+        "status": "",
+        "_id": "14a6e0d9-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R001b",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "sensor_selection component shall always satisfy ACCURATE (IN IDEAL CONDITIONS, perfect weather, perfect lighting, on the ground, perfectly marked airport, stationary) ",
+        "comments": "",
+        "fulltext": "whenever idealConditions SensorSelection shall immediately satisfy  q_hat = q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "holding",
+            "probability": "null",
+            "timing": "immediately",
+            "response": "satisfaction",
+            "variables": [
+                "idealConditions",
+                "q_hat",
+                "q"
+            ],
+            "qualifier_word": "whenever",
+            "pre_condition": "(idealConditions)",
+            "regular_condition": "(idealConditions)",
+            "conditionTextRange": [
+                0,
+                23
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                25,
+                39
+            ],
+            "timingTextRange": [
+                47,
+                57
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                59,
+                76
+            ],
+            "diagramVariables": "CC = <b><i>(idealConditions)</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: every point in the interval where <b><i>(idealConditions)</i></b> is true.\nREQUIRES: for every trigger, if trigger holds then RES also holds at the same time point.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_holding_immediately_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "regular_condition_unexp_pt": "idealConditions",
+            "regular_condition_unexp_ft": "idealConditions",
+            "regular_condition_unexp_pctl": "idealConditions",
+            "regular_condition_SMV_pt": "idealConditions",
+            "regular_condition_SMV_ft": "idealConditions",
+            "regular_condition_PRISM_pctl": "idealConditions",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "(LAST V (idealConditions -> (q_hat = q)))",
+            "pt": "(H (idealConditions -> (q_hat = q)))",
+            "pctl": "P>=1[(G (idealConditions => (P>=1[(q_hat = q)])))]",
+            "ptExpanded": "(H (idealConditions -> (q_hat = q)))",
+            "CoCoSpecCode": "H((idealConditions => (q_hat = q)))",
+            "ftExpanded": "(LAST V (idealConditions -> (q_hat = q)))",
+            "pctlExpanded": "P>=1[(G (idealConditions => (P>=1[(q_hat = q)])))]",
+            "ftInfAUExpanded": "(G (idealConditions -> (q_hat = q)))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0da-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R017",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Whenever a runway incursion, RunwayIntrusionDetector, with probability greater than (99.99%), detects an incursion before 10 time units.",
+        "comments": "",
+        "fulltext": "whenever q_k RunwayIntrusionDetector shall with probability > 0.9999 within 10  ticks satisfy incursionDetected",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "holding",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "q_k",
+                "incursionDetected"
+            ],
+            "qualifier_word": "whenever",
+            "pre_condition": "(q_k)",
+            "regular_condition": "(q_k)",
+            "conditionTextRange": [
+                0,
+                11
+            ],
+            "component_name": "RunwayIntrusionDetector",
+            "componentTextRange": [
+                13,
+                35
+            ],
+            "probability_bound": [
+                ">",
+                "0.9999"
+            ],
+            "probabilityTextRange": [
+                43,
+                67
+            ],
+            "duration": "10",
+            "timingTextRange": [
+                69,
+                84
+            ],
+            "post_condition": "(incursionDetected)",
+            "responseTextRange": [
+                86,
+                110
+            ],
+            "diagramVariables": "CC = <b><i>(q_k)</i></b>,  n = <b><i>10</i></b>, Response = <b><i>(incursionDetected)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: every point in the interval where <b><i>(q_k)</i></b> is true.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>10</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>10</i></b>). If the interval ends sooner than trigger+<b><i>10</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_holding_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">0.9999",
+            "regular_condition_unexp_pt": "q_k",
+            "regular_condition_unexp_ft": "q_k",
+            "regular_condition_unexp_pctl": "q_k",
+            "regular_condition_SMV_pt": "q_k",
+            "regular_condition_SMV_ft": "q_k",
+            "regular_condition_PRISM_pctl": "q_k",
+            "post_condition_unexp_pt": "incursionDetected",
+            "post_condition_unexp_ft": "incursionDetected",
+            "post_condition_unexp_pctl": "incursionDetected",
+            "post_condition_SMV_pt": "incursionDetected",
+            "post_condition_SMV_ft": "incursionDetected",
+            "post_condition_PRISM_pctl": "incursionDetected",
+            "ft": "(LAST V (q_k -> ((F[<=10] incursionDetected) | (F[<10] LAST))))",
+            "pt": "(H ((O[=10] (q_k & (! incursionDetected))) -> (O[<10] ((Z FALSE) | incursionDetected))))",
+            "pctl": "P>=1[(G (q_k => (P>0.9999[(F<=10 incursionDetected)])))]",
+            "ptExpanded": "(H ((O[10,10] (q_k & (! incursionDetected))) -> (O[0,9] ((Z FALSE) | incursionDetected))))",
+            "CoCoSpecCode": "H((OT(10, 10, (q_k and not (incursionDetected))) => OT(9, 0, (ZtoPre(false) or incursionDetected))))",
+            "ftExpanded": "(LAST V (q_k -> ((F[0,10] incursionDetected) | (F[0,9] LAST))))",
+            "pctlExpanded": "P>=1[(G (q_k => (P>0.9999[(F<=10 incursionDetected)])))]",
+            "ftInfAUExpanded": "(G (q_k -> (F[0,10] incursionDetected)))",
+            "component": "RunwayIntrusionDetector"
+        },
+        "status": "",
+        "_id": "14a6e0db-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R018",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "When inaccurate, the Runway Detector with probability greater than 99% become accurate within 100 time units.",
+        "comments": "",
+        "fulltext": "whenever inaccurate RunwayDetector shall with probability >0.99 within 100 ticks satisfy q_hat=q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "holding",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "inaccurate",
+                "q_hat",
+                "q"
+            ],
+            "qualifier_word": "whenever",
+            "pre_condition": "(inaccurate)",
+            "regular_condition": "(inaccurate)",
+            "conditionTextRange": [
+                0,
+                18
+            ],
+            "component_name": "RunwayDetector",
+            "componentTextRange": [
+                20,
+                33
+            ],
+            "probability_bound": [
+                ">",
+                "0.99"
+            ],
+            "probabilityTextRange": [
+                41,
+                62
+            ],
+            "duration": "100",
+            "timingTextRange": [
+                64,
+                79
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                81,
+                95
+            ],
+            "diagramVariables": "CC = <b><i>(inaccurate)</i></b>,  n = <b><i>100</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: every point in the interval where <b><i>(inaccurate)</i></b> is true.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>100</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>100</i></b>). If the interval ends sooner than trigger+<b><i>100</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_holding_within_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">0.99",
+            "regular_condition_unexp_pt": "inaccurate",
+            "regular_condition_unexp_ft": "inaccurate",
+            "regular_condition_unexp_pctl": "inaccurate",
+            "regular_condition_SMV_pt": "inaccurate",
+            "regular_condition_SMV_ft": "inaccurate",
+            "regular_condition_PRISM_pctl": "inaccurate",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "(LAST V (inaccurate -> ((F[<=100] (q_hat = q)) | (F[<100] LAST))))",
+            "pt": "(H ((O[=100] (inaccurate & (! (q_hat = q)))) -> (O[<100] ((Z FALSE) | (q_hat = q)))))",
+            "pctl": "P>=1[(G (inaccurate => (P>0.99[(F<=100 (q_hat = q))])))]",
+            "ptExpanded": "(H ((O[100,100] (inaccurate & (! (q_hat = q)))) -> (O[0,99] ((Z FALSE) | (q_hat = q)))))",
+            "CoCoSpecCode": "H((OT(100, 100, (inaccurate and not ((q_hat = q)))) => OT(99, 0, (ZtoPre(false) or (q_hat = q)))))",
+            "ftExpanded": "(LAST V (inaccurate -> ((F[0,100] (q_hat = q)) | (F[0,99] LAST))))",
+            "pctlExpanded": "P>=1[(G (inaccurate => (P>0.99[(F<=100 (q_hat = q))])))]",
+            "ftInfAUExpanded": "(G (inaccurate -> (F[0,100] (q_hat = q))))",
+            "component": "RunwayDetector"
+        },
+        "status": "",
+        "_id": "14a6e0dc-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R002",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Whenever one or more LECs are inaccurate, sensor selection output shall with probability  >0.98 at the next timepoint satisfy accurate  ",
+        "comments": "",
+        "fulltext": "whenever LECs_inaccurate SensorSelection shall with probability > 0.98 at the next timepoint satisfy  q_hat = q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "holding",
+            "probability": "bound",
+            "timing": "next",
+            "response": "satisfaction",
+            "variables": [
+                "LECs_inaccurate",
+                "q_hat",
+                "q"
+            ],
+            "qualifier_word": "whenever",
+            "pre_condition": "(LECs_inaccurate)",
+            "regular_condition": "(LECs_inaccurate)",
+            "conditionTextRange": [
+                0,
+                23
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                25,
+                39
+            ],
+            "probability_bound": [
+                ">",
+                "0.98"
+            ],
+            "probabilityTextRange": [
+                47,
+                69
+            ],
+            "timingTextRange": [
+                71,
+                91
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                93,
+                110
+            ],
+            "diagramVariables": "CC = <b><i>(LECs_inaccurate)</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: every point in the interval where <b><i>(LECs_inaccurate)</i></b> is true.\nREQUIRES: for every trigger, RES must hold at the next time step.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_holding_next_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">0.98",
+            "regular_condition_unexp_pt": "LECs_inaccurate",
+            "regular_condition_unexp_ft": "LECs_inaccurate",
+            "regular_condition_unexp_pctl": "LECs_inaccurate",
+            "regular_condition_SMV_pt": "LECs_inaccurate",
+            "regular_condition_SMV_ft": "LECs_inaccurate",
+            "regular_condition_PRISM_pctl": "LECs_inaccurate",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "(LAST V (LECs_inaccurate -> (LAST | (X (q_hat = q)))))",
+            "pt": "(H ((Y LECs_inaccurate) -> ((q_hat = q) | (Z FALSE))))",
+            "pctl": "P>=1[(G (LECs_inaccurate => (P>0.98[(LAST | (X (q_hat = q)))])))]",
+            "ptExpanded": "(H ((Y LECs_inaccurate) -> ((q_hat = q) | (Z FALSE))))",
+            "CoCoSpecCode": "H((YtoPre(LECs_inaccurate) => ((q_hat = q) or ZtoPre(false))))",
+            "ftExpanded": "(LAST V (LECs_inaccurate -> (LAST | (X (q_hat = q)))))",
+            "pctlExpanded": "P>=1[(G (LECs_inaccurate => (P>0.98[(false | (X (q_hat = q)))])))]",
+            "ftInfAUExpanded": "(G (LECs_inaccurate -> (X (q_hat = q))))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0dd-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R019",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Upon accurate, the Runway Detector with probability greater than 99% remains accurate for 10 time units.",
+        "comments": "",
+        "fulltext": "upon accurate RunwayDetector shall with probability > 0.99 for 10 ticks satisfy q_hat =q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "regular",
+            "probability": "bound",
+            "timing": "for",
+            "response": "satisfaction",
+            "variables": [
+                "accurate",
+                "q_hat",
+                "q"
+            ],
+            "qualifier_word": "upon",
+            "pre_condition": "(accurate)",
+            "regular_condition": "(accurate)",
+            "conditionTextRange": [
+                0,
+                12
+            ],
+            "component_name": "RunwayDetector",
+            "componentTextRange": [
+                14,
+                27
+            ],
+            "probability_bound": [
+                ">",
+                "0.99"
+            ],
+            "probabilityTextRange": [
+                35,
+                57
+            ],
+            "duration": "10",
+            "timingTextRange": [
+                59,
+                70
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                72,
+                87
+            ],
+            "diagramVariables": "TC = <b><i>(accurate)</i></b>,  n = <b><i>10</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval if <b><i>(accurate)</i></b> is true and any point in the interval where <b><i>(accurate)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must hold at the trigger and remain true for <b><i>10</i></b> time points past the trigger (i.e., trigger, trigger+1, ..., and trigger+<b><i>10</i></b>), or to the end of the interval if the interval ends sooner than trigger+<b><i>10</i></b>.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_regular_for_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">0.99",
+            "regular_condition_unexp_pt": "accurate",
+            "regular_condition_unexp_ft": "accurate",
+            "regular_condition_unexp_pctl": "accurate",
+            "regular_condition_SMV_pt": "accurate",
+            "regular_condition_SMV_ft": "accurate",
+            "regular_condition_PRISM_pctl": "accurate",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "((LAST V (((! accurate) & ((! LAST) & (X accurate))) -> (X ((G[<=10] (q_hat = q)) | (LAST V (q_hat = q)))))) & (accurate -> ((G[<=10] (q_hat = q)) | (LAST V (q_hat = q)))))",
+            "pt": "(H ((O[<=10] (accurate & (Z (! accurate)))) -> ((H (! accurate)) | (q_hat = q))))",
+            "pctl": "P>=1[((G (((! accurate) & (X accurate)) => (X (P>0.99[(G<=10 (q_hat = q))])))) & (accurate => (P>0.99[(G[<=10] (q_hat = q))])))]",
+            "ptExpanded": "(H ((O[0,10] (accurate & (Z (! accurate)))) -> ((H (! accurate)) | (q_hat = q))))",
+            "CoCoSpecCode": "H((OT(10, 0, (accurate and ZtoPre(not (accurate)))) => (H(not (accurate)) or (q_hat = q))))",
+            "ftExpanded": "((LAST V (((! accurate) & ((! LAST) & (X accurate))) -> (X ((G[0,10] (q_hat = q)) | (LAST V (q_hat = q)))))) & (accurate -> ((G[0,10] (q_hat = q)) | (LAST V (q_hat = q)))))",
+            "pctlExpanded": "P>=1[((G (((! accurate) & (X accurate)) => (X (P>0.99[(G<=10 (q_hat = q))])))) & (accurate => (P>0.99[(G[<=10] (q_hat = q))])))]",
+            "ftInfAUExpanded": "((G (((! accurate) & (X accurate)) -> (X ((G[0,10] (q_hat = q)) | (G (q_hat = q)))))) & (accurate -> ((G[0,10] (q_hat = q)) | (G (q_hat = q)))))",
+            "component": "RunwayDetector"
+        },
+        "status": "",
+        "_id": "14a6e0de-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R003",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Upon the LECs are accurate, sensor selection component output shall for 10 ticks satisfy accurate",
+        "comments": "",
+        "fulltext": "upon LECs_accurate SensorSelection shall for 10 ticks satisfy q_hat = q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "regular",
+            "probability": "null",
+            "timing": "for",
+            "response": "satisfaction",
+            "variables": [
+                "LECs_accurate",
+                "q_hat",
+                "q"
+            ],
+            "qualifier_word": "upon",
+            "pre_condition": "(LECs_accurate)",
+            "regular_condition": "(LECs_accurate)",
+            "conditionTextRange": [
+                0,
+                17
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                19,
+                33
+            ],
+            "duration": "10",
+            "timingTextRange": [
+                41,
+                52
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                54,
+                70
+            ],
+            "diagramVariables": "TC = <b><i>(LECs_accurate)</i></b>,  n = <b><i>10</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval if <b><i>(LECs_accurate)</i></b> is true and any point in the interval where <b><i>(LECs_accurate)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must hold at the trigger and remain true for <b><i>10</i></b> time points past the trigger (i.e., trigger, trigger+1, ..., and trigger+<b><i>10</i></b>), or to the end of the interval if the interval ends sooner than trigger+<b><i>10</i></b>.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_regular_for_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "regular_condition_unexp_pt": "LECs_accurate",
+            "regular_condition_unexp_ft": "LECs_accurate",
+            "regular_condition_unexp_pctl": "LECs_accurate",
+            "regular_condition_SMV_pt": "LECs_accurate",
+            "regular_condition_SMV_ft": "LECs_accurate",
+            "regular_condition_PRISM_pctl": "LECs_accurate",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "((LAST V (((! LECs_accurate) & ((! LAST) & (X LECs_accurate))) -> (X ((G[<=10] (q_hat = q)) | (LAST V (q_hat = q)))))) & (LECs_accurate -> ((G[<=10] (q_hat = q)) | (LAST V (q_hat = q)))))",
+            "pt": "(H ((O[<=10] (LECs_accurate & (Z (! LECs_accurate)))) -> ((H (! LECs_accurate)) | (q_hat = q))))",
+            "pctl": "P>=1[((G (((! LECs_accurate) & (X LECs_accurate)) => (X (P>=1[(G<=10 (q_hat = q))])))) & (LECs_accurate => (P>=1[(G[<=10] (q_hat = q))])))]",
+            "ptExpanded": "(H ((O[0,10] (LECs_accurate & (Z (! LECs_accurate)))) -> ((H (! LECs_accurate)) | (q_hat = q))))",
+            "CoCoSpecCode": "H((OT(10, 0, (LECs_accurate and ZtoPre(not (LECs_accurate)))) => (H(not (LECs_accurate)) or (q_hat = q))))",
+            "ftExpanded": "((LAST V (((! LECs_accurate) & ((! LAST) & (X LECs_accurate))) -> (X ((G[0,10] (q_hat = q)) | (LAST V (q_hat = q)))))) & (LECs_accurate -> ((G[0,10] (q_hat = q)) | (LAST V (q_hat = q)))))",
+            "pctlExpanded": "P>=1[((G (((! LECs_accurate) & (X LECs_accurate)) => (X (P>=1[(G<=10 (q_hat = q))])))) & (LECs_accurate => (P>=1[(G[<=10] (q_hat = q))])))]",
+            "ftInfAUExpanded": "((G (((! LECs_accurate) & (X LECs_accurate)) -> (X ((G[0,10] (q_hat = q)) | (G (q_hat = q)))))) & (LECs_accurate -> ((G[0,10] (q_hat = q)) | (G (q_hat = q)))))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0df-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R004",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Upon the LECs are accurate, sensor selection component output shall at next time point satisfy accurate",
+        "comments": "",
+        "fulltext": "upon LECs_accurate SensorSelection shall at the next timepoint satisfy q_hat=q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "regular",
+            "probability": "null",
+            "timing": "next",
+            "response": "satisfaction",
+            "variables": [
+                "LECs_accurate",
+                "q_hat",
+                "q"
+            ],
+            "qualifier_word": "upon",
+            "pre_condition": "(LECs_accurate)",
+            "regular_condition": "(LECs_accurate)",
+            "conditionTextRange": [
+                0,
+                17
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                19,
+                33
+            ],
+            "timingTextRange": [
+                41,
+                61
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                63,
+                77
+            ],
+            "diagramVariables": "TC = <b><i>(LECs_accurate)</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval if <b><i>(LECs_accurate)</i></b> is true and any point in the interval where <b><i>(LECs_accurate)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must hold at the next time step.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_regular_next_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "regular_condition_unexp_pt": "LECs_accurate",
+            "regular_condition_unexp_ft": "LECs_accurate",
+            "regular_condition_unexp_pctl": "LECs_accurate",
+            "regular_condition_SMV_pt": "LECs_accurate",
+            "regular_condition_SMV_ft": "LECs_accurate",
+            "regular_condition_PRISM_pctl": "LECs_accurate",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "((LAST V (((! LECs_accurate) & ((! LAST) & (X LECs_accurate))) -> (X (LAST | (X (q_hat = q)))))) & (LECs_accurate -> (LAST | (X (q_hat = q)))))",
+            "pt": "(H ((Y (LECs_accurate & (Z (! LECs_accurate)))) -> ((q_hat = q) | (Z FALSE))))",
+            "pctl": "P>=1[((G (((! LECs_accurate) & (X LECs_accurate)) => (X (P>=1[(LAST | (X (q_hat = q)))])))) & (LECs_accurate => (P>=1[(LAST | (X (q_hat = q)))])))]",
+            "ptExpanded": "(H ((Y (LECs_accurate & (Z (! LECs_accurate)))) -> ((q_hat = q) | (Z FALSE))))",
+            "CoCoSpecCode": "H((YtoPre((LECs_accurate and ZtoPre(not (LECs_accurate)))) => ((q_hat = q) or ZtoPre(false))))",
+            "ftExpanded": "((LAST V (((! LECs_accurate) & ((! LAST) & (X LECs_accurate))) -> (X (LAST | (X (q_hat = q)))))) & (LECs_accurate -> (LAST | (X (q_hat = q)))))",
+            "pctlExpanded": "P>=1[((G (((! LECs_accurate) & (X LECs_accurate)) => (X (P>=1[(false | (X (q_hat = q)))])))) & (LECs_accurate => (P>=1[(false | (X (q_hat = q)))])))]",
+            "ftInfAUExpanded": "((G (((! LECs_accurate) & (X LECs_accurate)) -> (X (X (q_hat = q))))) & (LECs_accurate -> (X (q_hat = q))))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0e0-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R005a",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Upon one or more LECs are inaccurate, sensor selection component output shall with probability greater than 95\\% at the next time point satisfy accurate",
+        "comments": "",
+        "fulltext": "upon LECs_inaccurate SensorSelection shall with probability >0.95 at the next timepoint satisfy q_hat=q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "regular",
+            "probability": "bound",
+            "timing": "next",
+            "response": "satisfaction",
+            "variables": [
+                "LECs_inaccurate",
+                "q_hat",
+                "q"
+            ],
+            "qualifier_word": "upon",
+            "pre_condition": "(LECs_inaccurate)",
+            "regular_condition": "(LECs_inaccurate)",
+            "conditionTextRange": [
+                0,
+                19
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                21,
+                35
+            ],
+            "probability_bound": [
+                ">",
+                "0.95"
+            ],
+            "probabilityTextRange": [
+                43,
+                64
+            ],
+            "timingTextRange": [
+                66,
+                86
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                88,
+                102
+            ],
+            "diagramVariables": "TC = <b><i>(LECs_inaccurate)</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: first point in the interval if <b><i>(LECs_inaccurate)</i></b> is true and any point in the interval where <b><i>(LECs_inaccurate)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must hold at the next time step.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_regular_next_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">0.95",
+            "regular_condition_unexp_pt": "LECs_inaccurate",
+            "regular_condition_unexp_ft": "LECs_inaccurate",
+            "regular_condition_unexp_pctl": "LECs_inaccurate",
+            "regular_condition_SMV_pt": "LECs_inaccurate",
+            "regular_condition_SMV_ft": "LECs_inaccurate",
+            "regular_condition_PRISM_pctl": "LECs_inaccurate",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "((LAST V (((! LECs_inaccurate) & ((! LAST) & (X LECs_inaccurate))) -> (X (LAST | (X (q_hat = q)))))) & (LECs_inaccurate -> (LAST | (X (q_hat = q)))))",
+            "pt": "(H ((Y (LECs_inaccurate & (Z (! LECs_inaccurate)))) -> ((q_hat = q) | (Z FALSE))))",
+            "pctl": "P>=1[((G (((! LECs_inaccurate) & (X LECs_inaccurate)) => (X (P>0.95[(LAST | (X (q_hat = q)))])))) & (LECs_inaccurate => (P>0.95[(LAST | (X (q_hat = q)))])))]",
+            "ptExpanded": "(H ((Y (LECs_inaccurate & (Z (! LECs_inaccurate)))) -> ((q_hat = q) | (Z FALSE))))",
+            "CoCoSpecCode": "H((YtoPre((LECs_inaccurate and ZtoPre(not (LECs_inaccurate)))) => ((q_hat = q) or ZtoPre(false))))",
+            "ftExpanded": "((LAST V (((! LECs_inaccurate) & ((! LAST) & (X LECs_inaccurate))) -> (X (LAST | (X (q_hat = q)))))) & (LECs_inaccurate -> (LAST | (X (q_hat = q)))))",
+            "pctlExpanded": "P>=1[((G (((! LECs_inaccurate) & (X LECs_inaccurate)) => (X (P>0.95[(false | (X (q_hat = q)))])))) & (LECs_inaccurate => (P>0.95[(false | (X (q_hat = q)))])))]",
+            "ftInfAUExpanded": "((G (((! LECs_inaccurate) & (X LECs_inaccurate)) -> (X (X (q_hat = q))))) & (LECs_inaccurate -> (X (q_hat = q))))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0e1-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R005b",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "Whenever atLeastOneLECINNACURATE, sensor selection output shall with probability  >0.98 at the next timepoint satisfy ACCURATE (reference the DTMC since it gives ACCURACY for a single LEC output)",
+        "comments": "",
+        "fulltext": "whenever oneLEC_innacurate SensorSelection shall with probability>0.98 at the next timepoint satisfy q_hat =q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "null"
+            },
+            "condition": "holding",
+            "probability": "bound",
+            "timing": "next",
+            "response": "satisfaction",
+            "variables": [
+                "oneLEC_innacurate",
+                "q_hat",
+                "q"
+            ],
+            "qualifier_word": "whenever",
+            "pre_condition": "(oneLEC_innacurate)",
+            "regular_condition": "(oneLEC_innacurate)",
+            "conditionTextRange": [
+                0,
+                25
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                27,
+                41
+            ],
+            "probability_bound": [
+                ">",
+                "0.98"
+            ],
+            "probabilityTextRange": [
+                49,
+                69
+            ],
+            "timingTextRange": [
+                71,
+                91
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                93,
+                108
+            ],
+            "diagramVariables": "CC = <b><i>(oneLEC_innacurate)</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in the interval defined by the entire execution.\nTRIGGER: every point in the interval where <b><i>(oneLEC_innacurate)</i></b> is true.\nREQUIRES: for every trigger, RES must hold at the next time step.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/null_holding_next_satisfaction.svg",
+            "scope_mode_pt": "BAD_PT",
+            "scope_mode_ft": "BAD_FT",
+            "bound": ">0.98",
+            "regular_condition_unexp_pt": "oneLEC_innacurate",
+            "regular_condition_unexp_ft": "oneLEC_innacurate",
+            "regular_condition_unexp_pctl": "oneLEC_innacurate",
+            "regular_condition_SMV_pt": "oneLEC_innacurate",
+            "regular_condition_SMV_ft": "oneLEC_innacurate",
+            "regular_condition_PRISM_pctl": "oneLEC_innacurate",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "(LAST V (oneLEC_innacurate -> (LAST | (X (q_hat = q)))))",
+            "pt": "(H ((Y oneLEC_innacurate) -> ((q_hat = q) | (Z FALSE))))",
+            "pctl": "P>=1[(G (oneLEC_innacurate => (P>0.98[(LAST | (X (q_hat = q)))])))]",
+            "ptExpanded": "(H ((Y oneLEC_innacurate) -> ((q_hat = q) | (Z FALSE))))",
+            "CoCoSpecCode": "H((YtoPre(oneLEC_innacurate) => ((q_hat = q) or ZtoPre(false))))",
+            "ftExpanded": "(LAST V (oneLEC_innacurate -> (LAST | (X (q_hat = q)))))",
+            "pctlExpanded": "P>=1[(G (oneLEC_innacurate => (P>0.98[(false | (X (q_hat = q)))])))]",
+            "ftInfAUExpanded": "(G (oneLEC_innacurate -> (X (q_hat = q))))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0e2-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R006",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "In auto-taxi mode, sensor selection component output shall with probability > 0.95 always satisfy accurate",
+        "comments": "",
+        "fulltext": "in auto_taxi_mode SensorSelection shall with probability > 0.95 always satisfy q_hat=q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "in"
+            },
+            "condition": "null",
+            "probability": "bound",
+            "timing": "always",
+            "response": "satisfaction",
+            "variables": [
+                "auto_taxi_mode",
+                "q_hat",
+                "q"
+            ],
+            "scope_mode": "auto_taxi_mode",
+            "scopeTextRange": [
+                0,
+                16
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                18,
+                32
+            ],
+            "probability_bound": [
+                ">",
+                "0.95"
+            ],
+            "probabilityTextRange": [
+                40,
+                62
+            ],
+            "timingTextRange": [
+                64,
+                69
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                71,
+                85
+            ],
+            "diagramVariables": "M = <b><i>auto_taxi_mode</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in every interval where <b><i>auto_taxi_mode</i></b> holds.\nTRIGGER: first point in the interval.\nREQUIRES: for every trigger, RES must hold at all time points between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/in_null_always_satisfaction.svg",
+            "scope_mode_pt": "auto_taxi_mode",
+            "scope_mode_ft": "auto_taxi_mode",
+            "scope_mode_pctl": "auto_taxi_mode",
+            "bound": ">0.95",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "(LAST V (auto_taxi_mode -> (q_hat = q)))",
+            "pt": "(H (auto_taxi_mode -> (q_hat = q)))",
+            "pctl": "P>=1[((G ((! (Fin_auto_taxi_mode & (! LAST))) | (X (P>0.95[(Lin_auto_taxi_mode R (q_hat = q))])))) & (auto_taxi_mode => (Lin_auto_taxi_mode | (P>0.95[(Lin_auto_taxi_mode R (q_hat = q))]))))]",
+            "ptExpanded": "(H (auto_taxi_mode -> (q_hat = q)))",
+            "CoCoSpecCode": "H((auto_taxi_mode => (q_hat = q)))",
+            "ftExpanded": "(LAST V (auto_taxi_mode -> (q_hat = q)))",
+            "pctlExpanded": "P>=1[((G ((! (((! auto_taxi_mode) & (X auto_taxi_mode)) & (! false))) | (X (P>0.95[((auto_taxi_mode & (X (! auto_taxi_mode))) R (q_hat = q))])))) & (auto_taxi_mode => ((auto_taxi_mode & (X (! auto_taxi_mode))) | (P>0.95[((auto_taxi_mode & (X (! auto_taxi_mode))) R (q_hat = q))]))))]",
+            "ftInfAUExpanded": "(G (auto_taxi_mode -> (q_hat = q)))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0e3-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R007",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "In auto-taxi mode, whenever the LECs disagree, the sensor selection output shall with probability > 0.99 within 5 ticks satisfy accurate  ",
+        "comments": "",
+        "fulltext": "in auto_taxi_mode whenever LEC_disagreement SensorSelection shall with probability >0.99 within 5 ticks satisfy q_hat =q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "in"
+            },
+            "condition": "holding",
+            "probability": "bound",
+            "timing": "within",
+            "response": "satisfaction",
+            "variables": [
+                "auto_taxi_mode",
+                "LEC_disagreement",
+                "q_hat",
+                "q"
+            ],
+            "scope_mode": "auto_taxi_mode",
+            "scopeTextRange": [
+                0,
+                16
+            ],
+            "qualifier_word": "whenever",
+            "pre_condition": "(LEC_disagreement)",
+            "regular_condition": "(LEC_disagreement)",
+            "conditionTextRange": [
+                18,
+                42
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                44,
+                58
+            ],
+            "probability_bound": [
+                ">",
+                "0.99"
+            ],
+            "probabilityTextRange": [
+                66,
+                87
+            ],
+            "duration": "5",
+            "timingTextRange": [
+                89,
+                102
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                104,
+                119
+            ],
+            "diagramVariables": "M = <b><i>auto_taxi_mode</i></b>, CC = <b><i>(LEC_disagreement)</i></b>,  n = <b><i>5</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in every interval where <b><i>auto_taxi_mode</i></b> holds.\nTRIGGER: every point in the interval where <b><i>(LEC_disagreement)</i></b> is true.\nREQUIRES: for every trigger, RES must hold at some point with distance <= <b><i>5</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>5</i></b>). If the interval ends sooner than trigger+<b><i>5</i></b>, then RES need not hold.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/in_holding_within_satisfaction.svg",
+            "scope_mode_pt": "auto_taxi_mode",
+            "scope_mode_ft": "auto_taxi_mode",
+            "scope_mode_pctl": "auto_taxi_mode",
+            "bound": ">0.99",
+            "regular_condition_unexp_pt": "LEC_disagreement",
+            "regular_condition_unexp_ft": "LEC_disagreement",
+            "regular_condition_unexp_pctl": "LEC_disagreement",
+            "regular_condition_SMV_pt": "LEC_disagreement",
+            "regular_condition_SMV_ft": "LEC_disagreement",
+            "regular_condition_PRISM_pctl": "LEC_disagreement",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "((LAST V ((! (Fin_auto_taxi_mode & (! LAST))) | (X ((Lin_auto_taxi_mode | LAST) V (LEC_disagreement -> ((F[<=5] (q_hat = q)) | (F[<5] (Lin_auto_taxi_mode | LAST)))))))) & (auto_taxi_mode -> ((Lin_auto_taxi_mode | LAST) V (LEC_disagreement -> ((F[<=5] (q_hat = q)) | (F[<5] (Lin_auto_taxi_mode | LAST)))))))",
+            "pt": "((H (Lin_auto_taxi_mode -> (Y (((O[=5] (LEC_disagreement & (! (q_hat = q)))) -> (O[<5] (Fin_auto_taxi_mode | (q_hat = q)))) S (((O[=5] (LEC_disagreement & (! (q_hat = q)))) -> (O[<5] (Fin_auto_taxi_mode | (q_hat = q)))) & Fin_auto_taxi_mode))))) & (((! Lin_auto_taxi_mode) S ((! Lin_auto_taxi_mode) & Fin_auto_taxi_mode)) -> (((O[=5] (LEC_disagreement & (! (q_hat = q)))) -> (O[<5] (Fin_auto_taxi_mode | (q_hat = q)))) S (((O[=5] (LEC_disagreement & (! (q_hat = q)))) -> (O[<5] (Fin_auto_taxi_mode | (q_hat = q)))) & Fin_auto_taxi_mode))))",
+            "pctl": "P>=1[((G ((! (Fin_auto_taxi_mode & (! LAST))) | (X (Lin_auto_taxi_mode R (LEC_disagreement => (P>0.99[(F<=5 (q_hat = q))])))))) & (auto_taxi_mode => (Lin_auto_taxi_mode | (Lin_auto_taxi_mode R (LEC_disagreement => (P>0.99[(F[<=5] (q_hat = q))]))))))]",
+            "ptExpanded": "((H (((! auto_taxi_mode) & (Y auto_taxi_mode)) -> (Y (((O[5,5] (LEC_disagreement & (! (q_hat = q)))) -> (O[0,4] ((auto_taxi_mode & (Z (! auto_taxi_mode))) | (q_hat = q)))) S (((O[5,5] (LEC_disagreement & (! (q_hat = q)))) -> (O[0,4] ((auto_taxi_mode & (Z (! auto_taxi_mode))) | (q_hat = q)))) & (auto_taxi_mode & (Z (! auto_taxi_mode)))))))) & (((! ((! auto_taxi_mode) & (Y auto_taxi_mode))) S ((! ((! auto_taxi_mode) & (Y auto_taxi_mode))) & (auto_taxi_mode & (Z (! auto_taxi_mode))))) -> (((O[5,5] (LEC_disagreement & (! (q_hat = q)))) -> (O[0,4] ((auto_taxi_mode & (Z (! auto_taxi_mode))) | (q_hat = q)))) S (((O[5,5] (LEC_disagreement & (! (q_hat = q)))) -> (O[0,4] ((auto_taxi_mode & (Z (! auto_taxi_mode))) | (q_hat = q)))) & (auto_taxi_mode & (Z (! auto_taxi_mode)))))))",
+            "CoCoSpecCode": "(H(((not (auto_taxi_mode) and YtoPre(auto_taxi_mode)) => YtoPre(SI((auto_taxi_mode and ZtoPre(not (auto_taxi_mode))),(OT(5, 5, (LEC_disagreement and not ((q_hat = q)))) => OT(4, 0, ((auto_taxi_mode and ZtoPre(not (auto_taxi_mode))) or (q_hat = q)))))))) and (SI((auto_taxi_mode and ZtoPre(not (auto_taxi_mode))),not ((not (auto_taxi_mode) and YtoPre(auto_taxi_mode)))) => SI((auto_taxi_mode and ZtoPre(not (auto_taxi_mode))),(OT(5, 5, (LEC_disagreement and not ((q_hat = q)))) => OT(4, 0, ((auto_taxi_mode and ZtoPre(not (auto_taxi_mode))) or (q_hat = q)))))))",
+            "ftExpanded": "((LAST V ((! ((((! auto_taxi_mode) & (! LAST)) & (X auto_taxi_mode)) & (! LAST))) | (X ((((auto_taxi_mode & (! LAST)) & (X (! auto_taxi_mode))) | LAST) V (LEC_disagreement -> ((F[0,5] (q_hat = q)) | (F[0,4] (((auto_taxi_mode & (! LAST)) & (X (! auto_taxi_mode))) | LAST)))))))) & (auto_taxi_mode -> ((((auto_taxi_mode & (! LAST)) & (X (! auto_taxi_mode))) | LAST) V (LEC_disagreement -> ((F[0,5] (q_hat = q)) | (F[0,4] (((auto_taxi_mode & (! LAST)) & (X (! auto_taxi_mode))) | LAST)))))))",
+            "pctlExpanded": "P>=1[((G ((! (((! auto_taxi_mode) & (X auto_taxi_mode)) & (! false))) | (X ((auto_taxi_mode & (X (! auto_taxi_mode))) R (LEC_disagreement => (P>0.99[(F<=5 (q_hat = q))])))))) & (auto_taxi_mode => ((auto_taxi_mode & (X (! auto_taxi_mode))) | ((auto_taxi_mode & (X (! auto_taxi_mode))) R (LEC_disagreement => (P>0.99[(F[<=5] (q_hat = q))]))))))]",
+            "ftInfAUExpanded": "((G ((! ((! auto_taxi_mode) & (X auto_taxi_mode))) | (X ((auto_taxi_mode & (X (! auto_taxi_mode))) V (LEC_disagreement -> ((F[0,5] (q_hat = q)) | (F[0,4] (auto_taxi_mode & (X (! auto_taxi_mode)))))))))) & (auto_taxi_mode -> ((auto_taxi_mode & (X (! auto_taxi_mode))) V (LEC_disagreement -> ((F[0,5] (q_hat = q)) | (F[0,4] (auto_taxi_mode & (X (! auto_taxi_mode)))))))))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0e4-41f1-11f0-bf1e-a1c2a6d8f198"
+    },
+    {
+        "reqid": "R008",
+        "parent_reqid": "",
+        "project": "RTXLEC",
+        "rationale": "In auto-land mode, whenever one or more LECs are inaccurate, sensor selection output shall with probability > 0.999 at the next time point satisfy accurate",
+        "comments": "",
+        "fulltext": "in auto_land_mode whenever LEC_inaccurate SensorSelection shall with probability > 0.999 at the next timepoint satisfy q_hat =q",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "in"
+            },
+            "condition": "holding",
+            "probability": "bound",
+            "timing": "next",
+            "response": "satisfaction",
+            "variables": [
+                "auto_land_mode",
+                "LEC_inaccurate",
+                "q_hat",
+                "q"
+            ],
+            "scope_mode": "auto_land_mode",
+            "scopeTextRange": [
+                0,
+                16
+            ],
+            "qualifier_word": "whenever",
+            "pre_condition": "(LEC_inaccurate)",
+            "regular_condition": "(LEC_inaccurate)",
+            "conditionTextRange": [
+                18,
+                40
+            ],
+            "component_name": "SensorSelection",
+            "componentTextRange": [
+                42,
+                56
+            ],
+            "probability_bound": [
+                ">",
+                "0.999"
+            ],
+            "probabilityTextRange": [
+                64,
+                87
+            ],
+            "timingTextRange": [
+                89,
+                109
+            ],
+            "post_condition": "(q_hat = q)",
+            "responseTextRange": [
+                111,
+                126
+            ],
+            "diagramVariables": "M = <b><i>auto_land_mode</i></b>, CC = <b><i>(LEC_inaccurate)</i></b>, Response = <b><i>(q_hat = q)</i></b>.",
+            "description": "ENFORCED: in every interval where <b><i>auto_land_mode</i></b> holds.\nTRIGGER: every point in the interval where <b><i>(LEC_inaccurate)</i></b> is true.\nREQUIRES: for every trigger, RES must hold at the next time step.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/in_holding_next_satisfaction.svg",
+            "scope_mode_pt": "auto_land_mode",
+            "scope_mode_ft": "auto_land_mode",
+            "scope_mode_pctl": "auto_land_mode",
+            "bound": ">0.999",
+            "regular_condition_unexp_pt": "LEC_inaccurate",
+            "regular_condition_unexp_ft": "LEC_inaccurate",
+            "regular_condition_unexp_pctl": "LEC_inaccurate",
+            "regular_condition_SMV_pt": "LEC_inaccurate",
+            "regular_condition_SMV_ft": "LEC_inaccurate",
+            "regular_condition_PRISM_pctl": "LEC_inaccurate",
+            "post_condition_unexp_pt": "(q_hat = q)",
+            "post_condition_unexp_ft": "(q_hat = q)",
+            "post_condition_unexp_pctl": "(q_hat = q)",
+            "post_condition_SMV_pt": "(q_hat = q)",
+            "post_condition_SMV_ft": "(q_hat = q)",
+            "post_condition_PRISM_pctl": "(q_hat = q)",
+            "ft": "((LAST V ((! (Fin_auto_land_mode & (! LAST))) | (X ((Lin_auto_land_mode | LAST) V (LEC_inaccurate -> ((Lin_auto_land_mode | LAST) | ((X (q_hat = q)) & (! (Lin_auto_land_mode | LAST))))))))) & (auto_land_mode -> ((Lin_auto_land_mode | LAST) V (LEC_inaccurate -> ((Lin_auto_land_mode | LAST) | ((X (q_hat = q)) & (! (Lin_auto_land_mode | LAST))))))))",
+            "pt": "((H (Lin_auto_land_mode -> (Y (((Y LEC_inaccurate) -> ((q_hat = q) | Fin_auto_land_mode)) S (((Y LEC_inaccurate) -> ((q_hat = q) | Fin_auto_land_mode)) & Fin_auto_land_mode))))) & (((! Lin_auto_land_mode) S ((! Lin_auto_land_mode) & Fin_auto_land_mode)) -> (((Y LEC_inaccurate) -> ((q_hat = q) | Fin_auto_land_mode)) S (((Y LEC_inaccurate) -> ((q_hat = q) | Fin_auto_land_mode)) & Fin_auto_land_mode))))",
+            "pctl": "P>=1[((G ((! (Fin_auto_land_mode & (! LAST))) | (X (Lin_auto_land_mode R (LEC_inaccurate => (P>0.999[(Lin_auto_land_mode | ((X (q_hat = q)) & (! Lin_auto_land_mode)))])))))) & (auto_land_mode => (Lin_auto_land_mode | (Lin_auto_land_mode R (LEC_inaccurate => (P>0.999[(Lin_auto_land_mode | ((X (q_hat = q)) & (! Lin_auto_land_mode)))]))))))]",
+            "ptExpanded": "((H (((! auto_land_mode) & (Y auto_land_mode)) -> (Y (((Y LEC_inaccurate) -> ((q_hat = q) | (auto_land_mode & (Z (! auto_land_mode))))) S (((Y LEC_inaccurate) -> ((q_hat = q) | (auto_land_mode & (Z (! auto_land_mode))))) & (auto_land_mode & (Z (! auto_land_mode)))))))) & (((! ((! auto_land_mode) & (Y auto_land_mode))) S ((! ((! auto_land_mode) & (Y auto_land_mode))) & (auto_land_mode & (Z (! auto_land_mode))))) -> (((Y LEC_inaccurate) -> ((q_hat = q) | (auto_land_mode & (Z (! auto_land_mode))))) S (((Y LEC_inaccurate) -> ((q_hat = q) | (auto_land_mode & (Z (! auto_land_mode))))) & (auto_land_mode & (Z (! auto_land_mode)))))))",
+            "CoCoSpecCode": "(H(((not (auto_land_mode) and YtoPre(auto_land_mode)) => YtoPre(SI((auto_land_mode and ZtoPre(not (auto_land_mode))),(YtoPre(LEC_inaccurate) => ((q_hat = q) or (auto_land_mode and ZtoPre(not (auto_land_mode))))))))) and (SI((auto_land_mode and ZtoPre(not (auto_land_mode))),not ((not (auto_land_mode) and YtoPre(auto_land_mode)))) => SI((auto_land_mode and ZtoPre(not (auto_land_mode))),(YtoPre(LEC_inaccurate) => ((q_hat = q) or (auto_land_mode and ZtoPre(not (auto_land_mode))))))))",
+            "ftExpanded": "((LAST V ((! ((((! auto_land_mode) & (! LAST)) & (X auto_land_mode)) & (! LAST))) | (X ((((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST) V (LEC_inaccurate -> ((((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST) | ((X (q_hat = q)) & (! (((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST))))))))) & (auto_land_mode -> ((((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST) V (LEC_inaccurate -> ((((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST) | ((X (q_hat = q)) & (! (((auto_land_mode & (! LAST)) & (X (! auto_land_mode))) | LAST))))))))",
+            "pctlExpanded": "P>=1[((G ((! (((! auto_land_mode) & (X auto_land_mode)) & (! false))) | (X ((auto_land_mode & (X (! auto_land_mode))) R (LEC_inaccurate => (P>0.999[((auto_land_mode & (X (! auto_land_mode))) | ((X (q_hat = q)) & (! (auto_land_mode & (X (! auto_land_mode))))))])))))) & (auto_land_mode => ((auto_land_mode & (X (! auto_land_mode))) | ((auto_land_mode & (X (! auto_land_mode))) R (LEC_inaccurate => (P>0.999[((auto_land_mode & (X (! auto_land_mode))) | ((X (q_hat = q)) & (! (auto_land_mode & (X (! auto_land_mode))))))]))))))]",
+            "ftInfAUExpanded": "((G ((! ((! auto_land_mode) & (X auto_land_mode))) | (X ((auto_land_mode & (X (! auto_land_mode))) V (LEC_inaccurate -> ((auto_land_mode & (X (! auto_land_mode))) | ((X (q_hat = q)) & (! (auto_land_mode & (X (! auto_land_mode))))))))))) & (auto_land_mode -> ((auto_land_mode & (X (! auto_land_mode))) V (LEC_inaccurate -> ((auto_land_mode & (X (! auto_land_mode))) | ((X (q_hat = q)) & (! (auto_land_mode & (X (! auto_land_mode))))))))))",
+            "component": "SensorSelection"
+        },
+        "status": "",
+        "_id": "14a6e0e5-41f1-11f0-bf1e-a1c2a6d8f198"
+    }
+]
