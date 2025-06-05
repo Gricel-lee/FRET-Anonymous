@@ -32,6 +32,7 @@ List of contributors are anonymized during the accompanied paper review process.
 
 Video Guide
 -------
+Video downloadable from assets/demo.mov
 
 <table>
   <tr>
@@ -43,4 +44,4 @@ Video Guide
   </tr>
   <tr>
 </table>
-(Download available at assets/demo.mov)
+
