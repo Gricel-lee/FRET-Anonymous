@@ -8,10 +8,11 @@ The integration of autonomous or adaptive behavior into software-intensive syste
 
 Installation
 ------------
-To use the extended FRET framework download and run the executables:
+To use the extended FRET framework download and run the suitable executable:
 1) [MacOS - Apple Silicon (ARM) architectures](https://github.com/Gricel-lee/FRET-Anonymous/blob/main/executables/FRET-darwin-arm64.tgz)
 2) [Linux](https://github.com/Gricel-lee/FRET-Anonymous/blob/main/executables/FRET-linux-x64.tgz).
 
+Note that the tool is an extension of the classic FRET and as a result it will have all other features provided by classic FRET.
 
 The source code is also available for direct download in the following archive formats:
 - [.zip](https://github.com/Gricel-lee/FRET-Anonymous/blob/main/fret-3.0.0.zip) — suitable for Windows users
