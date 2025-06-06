@@ -31,7 +31,7 @@ List of contributors are anonymized during the accompanied paper review process.
 
 Video Guide
 -------
-Video downloadable from assets/demo.mov
+Instructions about how to use the FRET probabilistic editor can be found [here](https://github.com/Gricel-lee/FRET-Anonymous/blob/main/fret-electron/docs/_media/user-interface/writingReqs.md). We have also created a video that demonstrates the authoring of probabilistic requirements and generation of PCTL* formulas.  The video can be downloaded from [assets/demo.mov](https://github.com/Gricel-lee/FRET-Anonymous/blob/main/assets/demo.mov).
 
 <table>
   <tr>
