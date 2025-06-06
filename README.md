@@ -17,6 +17,8 @@ The source code is also available for direct download in the following archive f
 - [.zip](https://github.com/Gricel-lee/FRET-Anonymous/blob/main/fret-3.0.0.zip) — suitable for Windows users
 - [.tar](https://raw.githubusercontent.com/Gricel-lee/FRET-Anonymous/main/fret-3.0.0.tar) — suitable for MacOS/Linux users
 
+To install the extended FRET version manually, follow the [installation instructions](https://github.com/Gricel-lee/FRET-Anonymous/blob/main/fret-electron/docs/_media/installingFRET/installationInstructions.md).
+
 Evaluation datasets
 ---------
 Repository of requirements and their associated PCTL* formulas used for evaluation downloadable [here](https://github.com/Gricel-lee/FRET-Anonymous/tree/main/FRET-paper-evaluation).
