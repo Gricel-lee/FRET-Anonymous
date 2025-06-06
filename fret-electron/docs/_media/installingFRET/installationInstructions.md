@@ -22,15 +22,6 @@
   3. `npm run fret-install`
   4. `npm start`
 
-
-* Alternatively, for MacOS or Linux users, we provide means to build an executable natively or through Docker. See [Building executables](buildingExecutables.md).
-
-* For the installation of FRET on Windows see our [Windows installation guide](installation_windows.md).
-
-* If you run into installation issues, check the [Troubleshooting](Troubleshooting.md) section.
-
-* FRET developers, check the [Developer's guide](../developersGuide/installingAndRunningFRET.md).
-
 ### Notes
 
 > __Note:__ To run the LTLSIM simulator, a NuSMV (see http://nusmv.fbk.eu/) installation is required. Please make sure that the NuSMV binaries directory is added to the PATH environment variable. Additionally, please add `$PATH_TO_FRET/fret/tools/LTLSIM/ltlsim-core/simulator` to the PATH environment variable. Note that $PATH_TO_FRET  is the path location where the FRET git repo was cloned (and not the path to the FRET binary).
