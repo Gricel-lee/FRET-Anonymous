@@ -5,7 +5,7 @@ The raw details about the requirements is available in AllRequirements.xslx incl
 
 Note that, in cases where the natural language or original PCTL* for a requirement contains a query, e.g. P=?[F phi], we replaced this with a random probability. Queries are not part of PCTL* but are commonly used in tools such as PRISM. Some natural language requirements also contained unassigned variables to represent probability or timing, for expression in FRET, we instantiated specific values for these placeholder variables. Further to this, some individual requirements needed multiple FRETish requirements to express them completely. This is an accurate way to represent these as sets of FRET requirements are assumed to be in a logical conjunction relationship meaning that all of the requirements must hold together.
 
-We include the .json files for each of the requirement sets in the folder called JSON_Files. These can be directly imported into FRET for further examination if desired. 
+We include the .json files for each of the requirement sets in the folder called JSON_Files. These can be directly imported into FRET for further examination if desired. Instructions about how to import in FRET can be found [here](https://github.com/Gricel-lee/FRET-Anonymous/blob/main/fret-electron/docs/_media/user-interface/exportImport/import.md).
 
 
 
