@@ -31,11 +31,3 @@ We provide a set of example requirements that can be directly
 [imported](./user-interface/exportImport/import.md) in FRET in the
 [case studies directory](../../../caseStudies). The easiest example to start with is
 [Finite State Machine](../../../caseStudies/FiniteStateMachine).
-
-## FRET Team
-
-[Andreas Katis](https://andreaskatis.github.io/),
-[Anastasia Mavridou](http://amavridou.com/),
-[Johann Schumann](https://ti.arc.nasa.gov/profile/schumann/).
-
-*Alumni and Interns*: Milan Bhandari, David Bushnell, Tanja de Jong, Dimitra Giannakopoulou, Kelly Ho, George (Yorgo) Karamanolis, David Kooi, Daniel Mendoza, Jessica Phelan, Thomas Pressburger, Julian Rhein, Daniel Riley, Nija Shi, Khanh Trinh, Gricel Vazquez.
