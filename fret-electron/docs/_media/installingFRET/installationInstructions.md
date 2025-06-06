@@ -17,7 +17,7 @@
 
 * Here are the four simple steps to install and run FRET on Linux and MacOS systems:
 
-  1. `git clone https://github.com/NASA-SW-VnV/fret.git`
+  1. Download source code
   2. `cd fret/fret-electron`
   3. `npm run fret-install`
   4. `npm start`
