@@ -24,10 +24,3 @@ FRET is a framework for the elicitation, specification, formalization and unders
 * [FRET Command Line Interface (CLI)](./cli/cli.md)
     * [Generating Formalizations](./cli/cli.md#Generating-formalizations)
     * [Realizability checking](./cli/cli.md#Realizability-checking)
-
-#### FRET Example Requirements
-
-We provide a set of example requirements that can be directly
-[imported](./user-interface/exportImport/import.md) in FRET in the
-[case studies directory](../../../caseStudies). The easiest example to start with is
-[Finite State Machine](../../../caseStudies/FiniteStateMachine).
